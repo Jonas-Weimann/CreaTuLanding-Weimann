@@ -1,10 +1,11 @@
 import React from 'react'
+import { CartLogo } from './CartLogo'
 
 export const CartWidget = () => {
   return (
-    <div className="cartWidget">
-        <img src="./src/assets/images/cart.png" alt="Carrito de compras" />
-        0
+    <div className="cart-widget">
+      <CartLogo color="currentColor"/>
+      <p className='cart-counter'>0</p>
     </div>
   )
 }

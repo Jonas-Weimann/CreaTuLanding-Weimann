@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Button = (props) => {
   return (
-    <button className={props.className} style={props.style}>{props.children}</button>
+    <button onClick={props.clickEvent} className={props.className} style={props.style}>{props.children}</button>
   )
 }

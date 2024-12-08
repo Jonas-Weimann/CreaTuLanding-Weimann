@@ -1,0 +1,153 @@
+@font-face {
+    font-family: deca;
+    src: url(./src/assets/fonts/lexend_Deca/LexendDeca-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: encode;
+    src: url(./src/assets/fonts/Encode_Sans_Semi_Condensed/EncodeSansSemiCondensed-Medium.ttf);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(./src/assets/fonts/Poppins/Poppins-Medium.ttf);
+}
+
+:root {
+    --primary-light: #1E1E1E;
+    --primary-dark: #1A1A1D;
+    --secondary-light: #B996FF;
+    --secondary-dark: #8E66DE;
+    --text: #ededed;
+    --accent: #D9E520;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+video {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    filter: hue-rotate(35deg);
+}
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(0,0,0,0.17690826330532217) 0%, rgba(0,0,0,1) 100%);
+}
+
+header {
+    padding: 1em 3rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    position: fixed;
+    backdrop-filter: blur(10px);
+}
+
+.logoIcon {
+    width: 10vw;
+}
+
+.linksContainer {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    min-width: 700px;
+}
+
+.linksContainer a {
+    flex-grow: 3;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family: deca, sans-serif;
+    color: var(--secondary-light);
+}
+
+.landing-page {
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-widget {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--secondary-dark);
+}
+
+.cart-widget svg {
+    width: 3rem;
+}
+
+.cart-counter {
+    font-family: encode;
+    font-size: 1.6rem;
+    color: var(--secondary-light);
+}
+
+h1 {
+    font-family: encode;
+    font-size: 4vw;
+    color: var(--text);
+}
+
+.hero {
+    margin-left: 8em;
+    width: 45%;
+}
+
+.hero h1 b {
+    color: var(--accent);
+}
+
+.hero p {
+    font-family: deca;
+    font-size: 1.4vw;
+    color: var(--text);
+    margin-top: .6rem;
+}
+
+.hero p b {
+    color: var(--secondary-light);
+    font-weight: 300;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.hero button {
+    padding: .4em 2em;
+    border-radius: .5rem;
+    font-size: 1.3vw;
+    font-family: poppins;
+    cursor: pointer;
+    margin-top: 1rem;
+}
