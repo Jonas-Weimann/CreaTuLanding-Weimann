@@ -1,4 +1,3 @@
-import React from 'react'
 import { CartLogo } from './CartLogo'
 
 export const CartWidget = () => {

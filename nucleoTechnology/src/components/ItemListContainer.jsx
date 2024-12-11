@@ -1,7 +1,5 @@
-import React from 'react'
-
-export const ItemListContainer = () => {
+export const ItemListContainer = (props) => {
   return (
-    <div>ItemListContainer</div>
+    <div>{props.children}</div>
   )
 }

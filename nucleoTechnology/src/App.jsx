@@ -12,7 +12,9 @@ function App() {
       </div>
       <Navbar/>
       <Hero/>
-      <ItemListContainer/>
+      <ItemListContainer>
+        <h2>PRODUCTOS EN STOCK</h2>
+      </ItemListContainer>
     </div>
   )
 }
