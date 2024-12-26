@@ -1,0 +1,42 @@
+[
+    {
+        "id":"of-01",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off"
+    },
+    {
+        "id":"of-02",
+        "name":"Auriculares Sony WH50",
+        "originalPrice":"$110.000",
+        "discountedPrice": "$98.999",
+        "img": "src/assets/images/sonywh50.png",
+        "offerType": "10% off"
+    },
+    {
+        "id":"of-03",
+        "name":"Parlante portátil JBL GO 4",
+        "originalPrice":"$81.999",
+        "discountedPrice": "$73.699",
+        "img": "src/assets/images/jblgo.png",
+        "offerType": "10% off"
+    },
+    {
+        "id":"of-04",
+        "name":"Monitor de estudio B1030",
+        "originalPrice":"$400.000",
+        "discountedPrice": "$359.999",
+        "img": "src/assets/images/behringer.png",
+        "offerType": "10% off"
+    },
+    {
+        "id":"of-05",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off"
+    }
+]

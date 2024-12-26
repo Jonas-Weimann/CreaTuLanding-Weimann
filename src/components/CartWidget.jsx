@@ -1,10 +1,10 @@
-import { CartLogo } from './CartLogo'
+import { CartIcon } from './CartIcon'
 
-export const CartWidget = () => {
+export const CartWidget = ({count= 0}) => {
   return (
     <div className="cart-widget">
-      <CartLogo color="currentColor"/>
-      <p className='cart-counter'>0</p>
+      <CartIcon color="#00FFFF"/>
+      <div className='cart-counter'>{count}</div>
     </div>
   )
 }
