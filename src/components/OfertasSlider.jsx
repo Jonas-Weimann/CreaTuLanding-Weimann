@@ -46,7 +46,9 @@ export const OfertasSlider = () => {
     <div className='slider-container'>
     <Slider {...settings}>
       {
-        data.map((oferta)=>(
+        data
+        .filter(oferta => !oferta.dailyOffer && oferta.category=='sonido')
+        .map(oferta=>(
           <OfertaCard 
             key={oferta.id}
             name={oferta.name}

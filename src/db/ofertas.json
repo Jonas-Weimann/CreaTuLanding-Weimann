@@ -5,7 +5,10 @@
         "originalPrice":"$70.000",
         "discountedPrice": "$62.299",
         "img": "src/assets/images/alexa.png",
-        "offerType": "10% off"
+        "offerType": "Hot sale",
+        "category": "sonido",
+        "reviews":4.6,
+        "dailyOffer": false
     },
     {
         "id":"of-02",
@@ -13,7 +16,10 @@
         "originalPrice":"$110.000",
         "discountedPrice": "$98.999",
         "img": "src/assets/images/sonywh50.png",
-        "offerType": "10% off"
+        "offerType": "Best pick",
+        "category": "sonido",
+        "reviews":4.1,
+        "dailyOffer": false
     },
     {
         "id":"of-03",
@@ -21,7 +27,10 @@
         "originalPrice":"$81.999",
         "discountedPrice": "$73.699",
         "img": "src/assets/images/jblgo.png",
-        "offerType": "10% off"
+        "offerType": "Best pick",
+        "category": "sonido",
+        "reviews":3.6,
+        "dailyOffer": false
     },
     {
         "id":"of-04",
@@ -29,7 +38,10 @@
         "originalPrice":"$400.000",
         "discountedPrice": "$359.999",
         "img": "src/assets/images/behringer.png",
-        "offerType": "10% off"
+        "offerType": "Best pick",
+        "category": "sonido",
+        "reviews":4.7,
+        "dailyOffer": false
     },
     {
         "id":"of-05",
@@ -37,6 +49,120 @@
         "originalPrice":"$70.000",
         "discountedPrice": "$62.299",
         "img": "src/assets/images/alexa.png",
-        "offerType": "10% off"
+        "offerType": "Hot sale",
+        "category": "sonido",
+        "reviews":4.1,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-06",
+        "name":"Tira de luces LED RGB x 5 metros",
+        "originalPrice":"$11.900",
+        "discountedPrice": "$8.499",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "Hot sale",
+        "category": "sonido",
+        "reviews":3.9,
+        "description":"Tira de luces LED RGB de 5 metros, flexible y autoadhesiva, ideal para decoración de interiores. Ofrece una amplia gama de colores personalizables y modos dinámicos para crear ambientes únicos en cualquier espacio. Fácil de instalar y compatible con control remoto o app para ajustar brillo, efectos y tonalidades al instante.",
+        "dailyOffer": true
+    },
+    {
+        "id":"of-07",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "Hot sale",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-08",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-09",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-10",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-11",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "Hot sale",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-12",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-13",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-14",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "Hot sale",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
+    },
+    {
+        "id":"of-15",
+        "name":"Alexa 4ta generación",
+        "originalPrice":"$70.000",
+        "discountedPrice": "$62.299",
+        "img": "src/assets/images/alexa.png",
+        "offerType": "10% off",
+        "category": "sonido",
+        "reviews":4.3,
+        "dailyOffer": false
     }
 ]

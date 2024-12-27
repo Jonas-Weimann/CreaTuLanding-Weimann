@@ -97,6 +97,7 @@ header {
     text-align: center;
     text-decoration: none;
     padding: 0rem 1rem;
+    margin: 0 .5rem;
     color: var(--secondary-light);
 }
 
@@ -116,7 +117,7 @@ header {
 }
 
 .ofertas-page {
-    width: 100vw;
+    width: 100%;
     background: radial-gradient(circle, rgba(52,42,142,1) 0%, rgba(9,1,31,1) 100%);}
 
 .bannerOferta{
@@ -173,7 +174,7 @@ h1 {
     color: var(--text);
 }
 
-.hero {
+.SpecialOffersSection {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,9 +184,9 @@ h1 {
 }
 
 
-.hero h2 {
+.SpecialOffersSection h2 {
     font-family: deca;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 1rem 1.5rem;
     margin: 2rem 0 .5rem 0;
     background-color: #15003083;
@@ -212,7 +213,7 @@ h1 {
     width: 15rem;
     min-height: 10rem;
     margin: 2rem 0;
-    padding: .5rem 0 1rem 0;
+    padding: .5rem 0 2rem 0;
     position: relative;
 }
 
@@ -243,7 +244,6 @@ h1 {
 
 .card span {
     font-family: deca;
-    width: 100%;
     text-align: center;
 }
 
@@ -261,6 +261,7 @@ h1 {
     font-size: 1rem;
     transform: translateY(5px);
     color: #1E1E1E;
+
 }
 
 .price{
@@ -271,15 +272,137 @@ h1 {
 .card button {
     position: absolute;
     bottom: 0;
-    transform: translateY(1rem);
+    transform: translateY(1.2rem);
     padding: .4em 1em;
     border-radius: .5rem;
-    font-size: .8rem;
+    font-size: 1rem;
     font-family: deca;
     font-weight: 600;
     cursor: pointer;
     color: #38341D;
     background-color: #D9E520;
     border: none;
+}
+
+.daily-offer-section{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 4rem 0;
+    border-top: 2px white solid;
+}
+
+.daily-offer-section img {
+    width: 40%;
+}
+
+.daily-offer-section h3{
+    font-family: deca;
+    font-weight: 300;
+    font-size: 3rem;
+    color: white;
+}
+
+.daily-offer-section .oferta-container{
+    width: 60%;
+}
+
+.oferta-container .info-container {
+    background-color: #242424ce;
+    border-radius: 1rem;
+    backdrop-filter: hue-rotate(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    font-family: deca;
+}
+
+.info-container h4{
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgb(190, 190, 190);
+}
+
+.info-container p {
+    width: 70%;
+    font-size: 1.2rem;
+    margin: .5em 0;
+    color: white;
+}
+
+.info-container .old-price{
+    color: #636363;
+    font-size: 1.6rem;
+}
+
+.info-container .price {
+    font-size: 2.5rem;
+}
+
+.button-container{
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.button-container button {
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    font-family: deca;
+    border-radius: .8rem;
+    cursor: pointer;
+}
+
+
+.star {
+    color: orange;
+    font-size: 2rem;
+}
+.star1:before {
+    content : '★'
+}
+.star2:before {
+    content : '★★'
+}
+.star3:before {
+    content : '★★★'
+}
+.star4:before {
+    content : '★★★★'
+}
+.star5:before {
+    content : '★★★★★'
+}
+
+.all-offers-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.all-offers-section h5{
+    color: white;
+    font-family: deca;
+    font-size: 2.5rem;
+    margin: 4rem 0;
+}
+
+.all-offers-section .all-offers-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.offer-tag{
+    position: absolute;
+    top: -2.2rem;
+    padding: .3rem 1rem;
+    border-radius: 2rem;
+    left: 0
 }
 
