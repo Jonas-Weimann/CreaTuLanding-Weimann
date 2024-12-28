@@ -11,6 +11,8 @@ export const AllOffersSection = () => {
 
   return (
     <section className='all-offers-section'>
+      <img src="src/assets/images/blob3.png" alt="blob" className='blob3'/>
+      <img src="src/assets/images/blob4.png" alt="blob" className='blob4'/>
       <h5>Descubre oportunidades únicas</h5>
       <div className="all-offers-container">
       {
@@ -26,8 +28,6 @@ export const AllOffersSection = () => {
     ))
     }
       </div>
-
-  
     </section>
   )
 }

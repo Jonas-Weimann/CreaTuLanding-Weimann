@@ -1,33 +1,36 @@
 import {CartWidget} from './CartWidget'
 import { SearchBar } from './SearchBar'
-import { LogInOrRegisterWidget } from './LogInOrRegisterWidget'
-import { WishlistWidget } from './WishlistWidget'
-import { MenuDesplegable } from './MenuDesplegable'
 import { Link } from 'react-router-dom'
 
 
-export const Header = ({currentMode}) => {
+export const Header = () => {
   return (
       <header className='header'>
-        <div className='searchContainer'>
+        <div className='search-container'>
         <Link to='/ofertas'>
-          <img src="src/assets/images/logo.svg" alt="NUCLEO Technology" className='logoIcon'/>
+          <img src="src/assets/images/logo.svg" alt="NUCLEO Technology" className='logo-icon'/>
         </Link>
         <SearchBar/>
         <div className="widgets">
-        <LogInOrRegisterWidget/>
-        <WishlistWidget/>
-        <CartWidget />
+        <Link>
+          <img src="src/assets/images/login-register.svg" alt="Iniciar Sesión / Registrarse" className='login-icon'/>
+        </Link>
+        <Link>
+          <img src="src/assets/images/wishlist-icon.svg" alt="Favoritos" className='wishlist-icon'/>
+        </Link>
+        <Link>
+          <CartWidget />
+        </Link>        
         </div>
         </div>
-        <nav className="linksContainer">
+        <nav className="links-container">
           <Link to="/ofertas" >Ofertas</Link>
           <Link to="/celulares">Celulares</Link>
           <Link to="/cargadores">Cargadores</Link>
           <Link to="/sonido" >Sonido</Link>
           <Link to="/iluminacion" >Iluminación</Link>
           <Link to="/servicios">Servicios</Link>
-          <MenuDesplegable currentMode={currentMode}>Todos</MenuDesplegable>
+          <Link>Todos<img src="src/assets/images/dropdown-icon.svg" alt="dropdown" className='dropdown-icon'/></Link>
         </nav>
       </header>
   )
