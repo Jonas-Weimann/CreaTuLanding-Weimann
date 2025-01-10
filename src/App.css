@@ -46,12 +46,61 @@ header {
     backdrop-filter: blur(10px);
 }
 
+.error-main{
+    display: flex;
+    background-color: #1E1E1E;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 15rem;
+    justify-content: center;
+    height: 45rem;
+    padding-top: 10rem;
+    width: 100%;
+}
+
+.error-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    backdrop-filter: blur(3px);
+}
+
+.error-container h1{
+    font-size: 7rem;
+    font-family: deca;
+    color: rgb(203, 214, 45);
+}
+
+.error-container p{
+    font-size: 1.5rem;
+    color: #636363;
+    margin-bottom: 2rem;
+    font-family: alata;
+}
+
+.error-container a{
+    font-size: 1.6rem;
+    font-family: deca;
+    text-decoration: none;
+    padding: .8rem 1rem;
+    background-color: #B996FF;
+    border-radius: 1rem;
+}
+
+.error-main img{
+    width: 300px;
+    height: 100%;
+    border-radius: 2rem;
+}
+
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
+
 
 .logo-icon {
     width: 13rem;
@@ -176,7 +225,7 @@ header {
     color: #B996FF;
 }
 
-.ofertas-page {
+.ofertas-page, .celulares-page {
     width: 100%;
     background: radial-gradient(circle, rgba(52,42,142,1) 0%, #09011f 100%);
 }
@@ -322,6 +371,7 @@ h1 {
 
 .product-name{
     font-size: 1.1rem;
+    height: 40px;
     color: white;
 }
 
@@ -499,7 +549,7 @@ footer{
     gap: 5rem;
     justify-content: space-evenly;
     background-color: #09011f;
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 
 

@@ -47,14 +47,14 @@ export const OfertasSlider = () => {
     <Slider {...settings}>
       {
         data
-        .filter(oferta => !oferta.dailyOffer && oferta.category=='sonido')
+        .filter(oferta => !oferta.ofertaDiaria)
         .map(oferta=>(
           <OfertaCard 
             key={oferta.id}
-            name={oferta.name}
-            src={oferta.img}
-            oldPrice={oferta.originalPrice}
-            price={oferta.discountedPrice}
+            name={oferta.nombre}
+            src={oferta.imagen}
+            oldPrice={oferta.precioOriginal}
+            price={oferta.precioDescontado}
           />
         ))
       }

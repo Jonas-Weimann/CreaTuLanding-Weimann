@@ -1,4 +1,3 @@
-import React from 'react'
 import useFetch from '../hooks/usefetch'
 import { OfertaCard } from './OfertaCard'
 
@@ -19,11 +18,11 @@ export const AllOffersSection = () => {
     data.map(oferta=>(
       <OfertaCard
       key={oferta.id}
-      name={oferta.name}
-      src={oferta.img}
-      oldPrice={oferta.originalPrice}
-      price={oferta.discountedPrice}
-      offerType={oferta.offerType}
+      name={oferta.nombre}
+      src={oferta.imagen}
+      oldPrice={oferta.precioOriginal}
+      price={oferta.precioDescontado}
+      offerType={oferta.tipo}
       />
     ))
     }
