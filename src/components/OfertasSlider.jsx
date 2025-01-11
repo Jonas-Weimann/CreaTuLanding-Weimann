@@ -1,4 +1,3 @@
-import React from 'react'
 import Slider from 'react-slick'
 import useFetch from '../hooks/usefetch'
 import { OfertaCard } from './OfertaCard'
@@ -54,7 +53,7 @@ export const OfertasSlider = () => {
             name={oferta.nombre}
             src={oferta.imagen}
             oldPrice={oferta.precioOriginal}
-            price={oferta.precioDescontado}
+            price={oferta.precio}
           />
         ))
       }

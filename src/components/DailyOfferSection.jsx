@@ -18,7 +18,7 @@ export const DailyOfferSection = () => {
           <OfertaDelDiaCard 
           name={ofertaSeleccionada.nombre}
           oldPrice={ofertaSeleccionada.precioOriginal}
-          price={ofertaSeleccionada.precioDescontado}
+          price={ofertaSeleccionada.precio}
           reviews={ofertaSeleccionada.calificacion}
           description={ofertaSeleccionada.descripcion}
           />

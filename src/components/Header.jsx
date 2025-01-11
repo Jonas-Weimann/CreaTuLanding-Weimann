@@ -1,7 +1,7 @@
 import {CartWidget} from './CartWidget'
 import { SearchBar } from './SearchBar'
 import { Link } from 'react-router-dom'
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export const Header = () => {
   return (
@@ -15,8 +15,8 @@ export const Header = () => {
         <Link>
           <img src="src/assets/images/login-register.svg" alt="Iniciar Sesión / Registrarse" className='login-icon'/>
         </Link>
-        <Link>
-          <img src="src/assets/images/wishlist-icon.svg" alt="Favoritos" className='wishlist-icon'/>
+        <Link >
+        <FavoriteBorderIcon color="pink" sx={{width: '2rem', height:'2rem'}}/>
         </Link>
         <Link>
           <CartWidget />

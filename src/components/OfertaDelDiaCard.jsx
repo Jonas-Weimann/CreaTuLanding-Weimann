@@ -1,10 +1,7 @@
-import React from 'react'
-import { Button } from './Button'
+import Button from '@mui/material/Button';
 
 export const OfertaDelDiaCard = ({name, oldPrice, price, reviews, description}) => {
     const starCount = Math.ceil(reviews)
-    const filled = {backgroundColor:'#00ffff', border: '#00ffff 2px solid', color: 'none'}
-    const empty = {backgroundColor:'transparent', border: '#00ffff 2px solid', color:'#00ffff'}
   
   return (
     <div className='info-container'>
@@ -14,8 +11,8 @@ export const OfertaDelDiaCard = ({name, oldPrice, price, reviews, description}) 
         <span className="old-price"><s>{oldPrice}</s></span>
         <span className="price">{price}</span>
         <div className='button-container'>
-        <Button style={filled} className="filled"> Agregar al carrito </Button>
-        <Button style={empty} className="empty">Más información</Button>
+        <Button variant='contained' color="secondary"> Agregar al carrito </Button>
+        <Button variant='outlined' color="secondary">Más información</Button>
         </div>
     </div>
   )

@@ -21,7 +21,7 @@ export const AllOffersSection = () => {
       name={oferta.nombre}
       src={oferta.imagen}
       oldPrice={oferta.precioOriginal}
-      price={oferta.precioDescontado}
+      price={oferta.precio}
       offerType={oferta.tipo}
       />
     ))

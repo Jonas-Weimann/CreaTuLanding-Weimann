@@ -5,15 +5,45 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Error } from './pages/Error/Error';
 import { Celulares } from './pages/Celulares/celulares';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export const App = ()=>{ 
 
-  const {id} = useParams()
+  const theme = createTheme({
+    palette: {
+      primary: {
+        light: "#bbbace",
+        main: "#332a62",
+        dark: "#150030",
+        contrastText: '#fff',
+      },
+      secondary: {
+        light: "#f4f7c1",
+        main: "#d8e520",
+        dark: "#b9bc0d",
+        contrastText: '#000',
+      },
+      accent: {
+        light: "#9effff",
+        main: "#00ffff",
+        dark: "#12bdbd",
+        contrastText: '#000',
+      },
+      pink: {
+        light: "#f896eb",
+        main: "#ff20e1",
+        dark: "#920d80",
+        contrastText: '#000',
+      }
+    },
+  });
 
   return (
-    <BrowserRouter>
-      <Header/>
+    <ThemeProvider  theme={theme}>
+      <BrowserRouter>
+        <Header/>
         <Routes>
+          <Route path='/' element={<Ofertas/>}></Route>
           <Route path='/ofertas' element={<Ofertas/>}></Route>
           <Route path='/producto/:id'></Route>
           <Route path='/celulares' element={<Celulares/>}></Route>
@@ -23,8 +53,10 @@ export const App = ()=>{
           <Route path='/servicios' element={<Ofertas/>}></Route>
           <Route path='*' element={<Error/>}></Route>
         </Routes>
-      <Footer/>
+        <Footer/>
     </BrowserRouter>
+    </ThemeProvider>
+
   )
 }
 
