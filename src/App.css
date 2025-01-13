@@ -1,21 +1,21 @@
 @font-face {
     font-family: deca;
-    src: url(./src/assets/fonts/lexend_Deca/LexendDeca-VariableFont_wght.ttf);
+    src: url(/assets/fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf);
 }
 
 @font-face {
     font-family: encode;
-    src: url(./src/assets/fonts/Encode_Sans_Semi_Condensed/EncodeSansSemiCondensed-Medium.ttf);
+    src: url(/assets/fonts/Encode_Sans_Semi_Condensed/EncodeSansSemiCondensed-Medium.ttf);
 }
 
 @font-face {
     font-family: poppins;
-    src: url(./src/assets/fonts/Poppins/Poppins-Medium.ttf);
+    src: url(/assets/fonts/Poppins/Poppins-Medium.ttf);
 }
 
 @font-face {
     font-family: alata;
-    src: url(./src/assets/fonts/Alata/Alata-Regular.ttf);
+    src: url(/assets/fonts/Alata/Alata-Regular.ttf);
 }
 
 :root {
@@ -607,7 +607,7 @@ footer span{
 }
 
 .link-list.contacto a:nth-child(2)::after{
-    background-image: url('./src/assets/images/phone-icon.png');
+    background-image: url('/assets/images/phone-icon.png');
     background-size: cover;
     content: "";
     width: 25px;
@@ -617,7 +617,7 @@ footer span{
 }
 
 .link-list.contacto a:nth-child(3)::after{
-    background-image: url('./src/assets/images/mail-icon.png');
+    background-image: url('/assets/images/mail-icon.png');
     background-size: cover;
     content: "";
     width: 25px;
@@ -627,7 +627,7 @@ footer span{
 }
 
 .link-list.contacto a:nth-child(4)::after{
-    background-image: url('./src/assets/images/linkedin-icon.png');
+    background-image: url('/assets/images/linkedin-icon.png');
     background-size: cover;
     content: "";
     width: 25px;
@@ -637,7 +637,7 @@ footer span{
 }
 
 .link-list.social a:nth-child(2)::after{
-    background-image: url('./src/assets/images/instagram-icon.png');
+    background-image: url('/assets/images/instagram-icon.png');
     background-size: cover;
     content: "";
     width: 25px;
@@ -647,7 +647,7 @@ footer span{
 }
 
 .link-list.social a:nth-child(3)::after{
-    background-image: url('./src/assets/images/facebook-icon.png');
+    background-image: url('/assets/images/facebook-icon.png');
     background-size: cover;
     content: "";
     width: 25px;
@@ -657,7 +657,7 @@ footer span{
 }
 
 .link-list.social a:nth-child(4)::after{
-    background-image: url('./src/assets/images/tiktok-icon.png');
+    background-image: url('/assets/images/tiktok-icon.png');
     background-size: cover;
     content: "";
     width: 25px;

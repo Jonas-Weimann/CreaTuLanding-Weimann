@@ -1,11 +1,11 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, useLocation, useParams } from 'react-router-dom';
-import { Ofertas } from './pages/Ofertas/Ofertas';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Error } from './pages/Error/Error';
+import { Ofertas } from './pages/Ofertas/Ofertas';
 import { Celulares } from './pages/Celulares/celulares';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Error } from './pages/Error/Error';
 
 export const App = ()=>{ 
 
@@ -43,7 +43,7 @@ export const App = ()=>{
       <BrowserRouter>
         <Header/>
         <Routes>
-          <Route path='/' element={<Ofertas/>}></Route>
+          <Route path='/CreaTuLanding-Weimann/' element={<Ofertas/>}></Route>
           <Route path='/ofertas' element={<Ofertas/>}></Route>
           <Route path='/producto/:id'></Route>
           <Route path='/celulares' element={<Celulares/>}></Route>

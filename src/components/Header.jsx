@@ -2,18 +2,21 @@ import {CartWidget} from './CartWidget'
 import { SearchBar } from './SearchBar'
 import { Link } from 'react-router-dom'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Logo from "../assets/images/logo.svg"
+import LoginRegisterIcon from "../assets/images/login-register.svg"
+import DropdownIcon from "../assets/images/dropdown-icon.svg"
 
 export const Header = () => {
   return (
       <header className='header'>
         <div className='search-container'>
         <Link to='/ofertas'>
-          <img src="src/assets/images/logo.svg" alt="NUCLEO Technology" className='logo-icon'/>
+          <img src={Logo} alt="NUCLEO Technology" className='logo-icon'/>
         </Link>
         <SearchBar/>
         <div className="widgets">
         <Link>
-          <img src="src/assets/images/login-register.svg" alt="Iniciar Sesión / Registrarse" className='login-icon'/>
+          <img src={LoginRegisterIcon} alt="Iniciar Sesión / Registrarse" className='login-icon'/>
         </Link>
         <Link >
         <FavoriteBorderIcon color="pink" sx={{width: '2rem', height:'2rem'}}/>
@@ -30,7 +33,7 @@ export const Header = () => {
           <Link to="/sonido" >Sonido</Link>
           <Link to="/iluminacion" >Iluminación</Link>
           <Link to="/servicios">Servicios</Link>
-          <Link>Todos<img src="src/assets/images/dropdown-icon.svg" alt="dropdown" className='dropdown-icon'/></Link>
+          <Link>Todos<img src={DropdownIcon} alt="dropdown" className='dropdown-icon'/></Link>
         </nav>
       </header>
   )

@@ -1,9 +1,10 @@
 import { OfertaDelDiaCard } from './OfertaDelDiaCard'
 import useFetch from '../hooks/usefetch'
+import PopUpOffer from "../assets/images/popUpOffer.png"
 
 export const DailyOfferSection = () => {
 
-  const {data, loading, error} = useFetch('src/db/Ofertas.json')
+  const {data, loading, error} = useFetch('https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/ofertas.json')
     
   if(loading) return <p>Cargando</p>
   if(error) return <p>Error: {error.message}</p>
@@ -12,7 +13,7 @@ export const DailyOfferSection = () => {
 
   return (
     <section className='daily-offer-section'>
-        <img src="src/assets/images/popUpOffer.png"/>
+        <img src={PopUpOffer}/>
         <div className="oferta-container">
           <h3>OFERTA DEL DIA</h3>
           <OfertaDelDiaCard 

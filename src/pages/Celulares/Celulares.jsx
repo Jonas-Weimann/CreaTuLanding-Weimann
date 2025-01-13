@@ -12,7 +12,7 @@ export const Celulares = () => {
     <main className="celulares-page main">
           <h1>Todo lo que tu smartphone necesita, en un solo lugar</h1>
           <div className="celulares-sections-container">
-            <SideFilter options={dropdowns} url="/db/celulares.json"></SideFilter>
+            <SideFilter options={dropdowns} url="https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/celulares.json"></SideFilter>
             <SearchSection/>
           </div>
     </main>

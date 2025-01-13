@@ -1,10 +1,11 @@
 import { LinkList } from "./LinkList"
+import Logo from "../assets/images/logo.svg"
 
 export const Footer = ()=>{
     return(
         <footer>
             <div className="footer-logo-container">
-            <img src="src/assets/images/logo.svg" alt="NUCLEO Technology" className='footer-logo-icon'/>
+            <img src={Logo} alt="NUCLEO Technology" className='footer-logo-icon'/>
             <span>Soluciones tecnológicas al alcance de todos, con calidad y confianza.</span>
             </div>
             <div className="footer-links-container">
