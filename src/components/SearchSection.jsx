@@ -1,6 +1,12 @@
+import {SearchBar} from "./SearchBar"
+import ItemListContainer from "./ItemListContainer"
 
-export const SearchSection = () => {
+export const SearchSection = ({page, filtrosActivos, onFilterChange,  onRemoveFilter}) => {
   return (
-    <input type="text" placeholder="Buscar en celulares..."/>
+    <section className="search-section">
+      <SearchBar filtrosActivos={filtrosActivos} page="nucleo" onFilterChange={onFilterChange}></SearchBar>
+      <ItemListContainer filtrosActivos={filtrosActivos} onRemoveFilter={onRemoveFilter} page={page}/>
+    </section>
+
 )
 }

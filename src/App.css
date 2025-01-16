@@ -94,11 +94,101 @@ header {
     border-radius: 2rem;
 }
 
+.celulares-page{
+    padding-top: 10rem;
+}
+
+.celulares-sections-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+    padding: 0 10%;
+    margin: 4rem 0;
+}
+
+.side-filters-container{
+    min-width: 300px;
+    min-height: 30rem;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    backdrop-filter: blur(4px);
+    border: 3px solid var(--secondary-dark);
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+}
+
+.side-filters-container h2{
+    font-family: deca;
+    font-weight: 400;
+    color: var(--text);
+    font-size: 1.5rem;
+    padding: 1rem 0 2rem 0;
+}
+
+.side-filters-container h3{
+    font-family: deca;
+    align-self: flex-start;
+    font-weight: 400;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.price-slider{
+    width: 100%;
+    padding: 2.5rem 1rem 0 1rem;
+}
+
+.search-section{
+    width: 70%;
+}
+
+.search-section-input{
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.order-selector{
+    width: 3rem;
+}
+
+.accordions-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.accordions-container div{
+    font-family: deca;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: #281842;
+}
+
+.accordions-container span{
+    font-family: deca;
+    font-size: 1rem;
+}
+
+.accordions-container div:first-child, .accordions-container div:last-child{
+    border-radius: 1rem;
+}
+
+.item-list-container{
+    width: 100%;
+}
+
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    min-height: 100dvh;
 }
 
 
@@ -121,7 +211,7 @@ header {
 }
 
 .searchbar{
-    width: 50%;
+    width: 100%;
     border-radius: 2rem;
     text-decoration: none;
     border: none;
@@ -225,18 +315,15 @@ header {
     color: #B996FF;
 }
 
-.ofertas-page, .celulares-page {
+.ofertas-page {
     width: 100%;
     background: radial-gradient(circle, rgba(52,42,142,1) 0%, #09011f 100%);
 }
 
-.celulares-sections-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 3rem;
-    justify-content: space-between;
+.celulares-page{
+    background-color: #13032b;
 }
+
 
 .banner-oferta{
     border-radius: .5rem;
@@ -290,11 +377,6 @@ header {
     border-radius: 50%;
 }
 
-h1 {
-    font-family: encode;
-    font-size: 4vw;
-    color: var(--text);
-}
 
 .special-offers-section {
     display: flex;
@@ -306,7 +388,7 @@ h1 {
 }
 
 
-.special-offers-section h2 {
+.special-offers-section h1, .celulares-page h1 {
     font-family: deca;
     font-size: 2.5rem;
     padding: 1rem 1.5rem;
@@ -327,7 +409,7 @@ h1 {
 }
 
 .card {
-    background-color: #d9d9d936;
+    background-color: #d9d9d91f;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -342,7 +424,7 @@ h1 {
 
 
 .card .img-container{
-    background-color: #00000020;
+    background: radial-gradient(circle, #342a8e 0%, #09011f 100%);
     border-radius: .5rem;
     margin: .5rem 0;
     width: 80%;
@@ -396,6 +478,51 @@ h1 {
     /* color: #38341D;
     background-color: #D9E520; */
     border: none;
+}
+
+
+.card.producto{
+    align-items: flex-start;
+    min-height: none;
+    gap: 1.4rem;
+    width: 30%;
+    padding: 1rem 1rem;
+    margin: 0;
+}
+    
+
+.card .review-fav-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card .añadir-carrito-btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .4rem 0;
+    font-family: alata;
+    font-size: 1rem;    
+}
+
+.card .añadir-carrito-btn span{
+    align-items: center;
+}
+.card.producto img{
+    align-self: center;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+    background: radial-gradient(circle, #342a8e 0%, #09011f 100%);
+    width: 100%;
+    height: auto;
+}
+
+.card.producto span {
+    font-family: deca;
+    text-align: left;
+    height: 2rem;
 }
 
 .card.oferta button.add-to-cart-btn {
@@ -480,6 +607,7 @@ h1 {
 
 .star {
     color: orange;
+    transform: translateY(-.5rem);
     font-size: 2rem;
 }
 .star1:before {

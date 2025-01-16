@@ -1,20 +1,23 @@
 import Slider from '@mui/material/Slider';
 import { useEffect, useState } from 'react';
 import useFetch from '../hooks/usefetch';
+import AccordionDropdown from './AccordionDropdown'
 
-export const SideFilter = ({url}) => {
-  const [precioMaximo, setPrecioMaximo]= useState(100)
-  const [value, setValue] = useState([0, 100])
-  const parsePrice = (priceString) => {
-    return parseFloat(priceString.replace(/[^0-9]/g, ''));
-  };
+export const SideFilter = ({filtrosActivos, url, options, onFilterChange, onRemoveFilter}) => {
+  const keys = Object.keys(options)
+  const [precioMinimo, setPrecioMinimo]= useState(0)
+  const [precioMaximo, setPrecioMaximo]= useState(100000)
+  const [value, setValue] = useState([0, precioMaximo])
+
+
 
   let {data, loading, error} = useFetch(url)
 
   useEffect(()=>{
     if(data){
-      const listaDePrecios = data.map(producto =>(parsePrice(producto.precio)))
+      const listaDePrecios = data.map(producto =>((producto.precioValue)))
       setPrecioMaximo(Math.max(...listaDePrecios))
+      setPrecioMinimo(Math.min(...listaDePrecios))
     }
     if(error){
       setPrecioMaximo(299999)
@@ -22,30 +25,54 @@ export const SideFilter = ({url}) => {
   },[data, error])
 
 
+
+  const handleDropdownFilterChange = (dropdownKey, selectedFilters) => {
+    onFilterChange({ ...filtrosActivos, [dropdownKey]: selectedFilters })
+    }
+  
+
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+    onFilterChange({...filtrosActivos, precioValue: newValue})
+    }
+  
   function valuetext(value) {
     return `$${value}`
   }
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
-
 
   return (
-    <aside>
+    <aside className='side-filters-container'>
         <h2>Filtros de búsqueda</h2>
         <h3>Precio</h3>
+        <div className="price-slider">
         <Slider
-        min={0}
+        min={precioMinimo}
         max={precioMaximo}
-        step={250}
+        step={100}
         color="secondary"
         value={value}
         onChange={handleChange}
         valueLabelDisplay="on"
         getAriaValueText={valuetext}
         disabled={loading || precioMaximo === 0}
-      />
+        />
+        </div>
+        <div className="accordions-container">
+        {keys.map(key=>(
+          <AccordionDropdown
+            key={ "accordion-" + key} 
+            title={key} 
+            options={options[key]} 
+            selected={filtrosActivos[key] || []}
+            onFilterChange={(selectedFilters) =>
+              handleDropdownFilterChange(key, selectedFilters)
+            }
+            onRemoveFilter={onRemoveFilter}
+            ></AccordionDropdown>
+        ))}
+        </div>
     </aside>
   )
 }

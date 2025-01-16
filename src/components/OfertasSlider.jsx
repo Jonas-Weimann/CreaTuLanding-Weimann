@@ -1,6 +1,7 @@
 import Slider from 'react-slick'
 import useFetch from '../hooks/usefetch'
 import { OfertaCard } from './OfertaCard'
+import CircularProgress from '@mui/material/CircularProgress';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -38,7 +39,7 @@ export const OfertasSlider = () => {
     
     const {data, loading, error} = useFetch('https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/ofertas.json')
     
-    if(loading) return <p>Cargando</p>
+  if(loading) return <CircularProgress color="secondary" />
     if(error) return <p>Error: {error.message}</p>
 
   return (

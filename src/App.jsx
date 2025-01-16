@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Ofertas } from './pages/Ofertas/Ofertas';
-import { Celulares } from './pages/Celulares/celulares';
+import { Celulares } from './pages/Celulares/Celulares';
 import { Error } from './pages/Error/Error';
 
 export const App = ()=>{ 
@@ -12,7 +12,7 @@ export const App = ()=>{
   const theme = createTheme({
     palette: {
       primary: {
-        light: "#bbbace",
+        light: "#9282e4",
         main: "#332a62",
         dark: "#150030",
         contrastText: '#fff',
@@ -30,7 +30,7 @@ export const App = ()=>{
         contrastText: '#000',
       },
       pink: {
-        light: "#f896eb",
+        light: "#f3c2ec",
         main: "#ff20e1",
         dark: "#920d80",
         contrastText: '#000',

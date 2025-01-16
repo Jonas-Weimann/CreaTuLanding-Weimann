@@ -13,7 +13,7 @@ export const Header = () => {
         <Link to='/ofertas'>
           <img src={Logo} alt="NUCLEO Technology" className='logo-icon'/>
         </Link>
-        <SearchBar/>
+        <SearchBar page="Nucleo Technology"/>
         <div className="widgets">
         <Link>
           <img src={LoginRegisterIcon} alt="Iniciar Sesión / Registrarse" className='login-icon'/>
