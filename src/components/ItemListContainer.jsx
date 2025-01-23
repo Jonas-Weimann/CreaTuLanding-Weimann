@@ -7,16 +7,15 @@ import {Stack} from "@mui/material"
 import CircularProgress from '@mui/material/CircularProgress';
 
 
-export default function ItemListContainer ({filtrosActivos, page, onRemoveFilter}){
+export default function ItemListContainer ({filtrosActivos, onRemoveFilter, url, page}){
   const [productosFiltrados, setProductosFiltrados] = useState([])
-  const {data, loading, error} = useFetch(`https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/${page}.json`)
+  const {data, loading, error} = useFetch(url)
 
   function precioEntre(numero, minimo, maximo) {
     return numero >= minimo && numero <= maximo;
   }
 
   useEffect(()=>{
-
     const cumpleFiltros = (producto, filtros)=>{
       return Object.keys(filtros).every(key=>{
         const filtro = filtros[key]
@@ -26,12 +25,10 @@ export default function ItemListContainer ({filtrosActivos, page, onRemoveFilter
         }
 
         if(key == "search"){
-          console.log()
           return filtro.some(palabra => producto.nombre.toLowerCase().includes(palabra.toLowerCase()))
         }
 
         if(key == "precioValue") {
-          console.log(valueProducto, filtro[0], filtro[1])
           return precioEntre(valueProducto, filtro[0], filtro[1])
         }
 
@@ -47,13 +44,13 @@ export default function ItemListContainer ({filtrosActivos, page, onRemoveFilter
     }
   },[filtrosActivos, data])
 
-  if(loading) return <CircularProgress color="secondary" />
+  if(loading) return <CircularProgress color="secondary"/>
   if(error) return <p>Error: {error.message}</p>
 
   return (
     <Stack className="item-list-container" direction="row" flexWrap="wrap" gap="2rem" justifyContent="center">
-        <Stack marginY="2rem" direction="row" gap="1rem" alignItems="flex-start" justifyContent="space-between" spacing={1} width="100%">
-          <Stack  flexWrap="wrap" gap="1rem" justifyContent="center" direction="row" className="applied-filters-container">
+        <Stack marginY="2rem" direction="row" gap="1rem" alignItems="center" justifyContent="space-between" spacing={1} width="100%">
+          <Stack  flexWrap="wrap" gap="1rem" justifyContent="center" alignItems="center" direction="row" className="applied-filters-container">
           {Object.keys(filtrosActivos).map(key =>
             filtrosActivos[key].map((filtro)=>(
             <Chip 
@@ -64,10 +61,10 @@ export default function ItemListContainer ({filtrosActivos, page, onRemoveFilter
               />
           )))}
           </Stack>
-          <OrderSelector/>
+          <OrderSelector sx={{display: "flex", alignItems: "center"}}/>
         </Stack>
         {productosFiltrados.map((producto)=>(
-          <ProductCard key={producto.id} src={producto.imagen} reviews={producto.calificacion} precio={producto.precio} nombre={producto.nombre}>
+          <ProductCard key={producto.id} page={page} id={producto.id} src={producto.imagen} reviews={producto.calificacion} precio={producto.precio} nombre={producto.nombre}>
           </ProductCard>
         ))}
     </Stack>

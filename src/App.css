@@ -41,9 +41,9 @@ header {
 
 }
 
-.navbar {
+.links-container {
     position: fixed;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1rem);
 }
 
 .error-main{
@@ -94,11 +94,80 @@ header {
     border-radius: 2rem;
 }
 
-.celulares-page{
+.product-page, .detail-page{
     padding-top: 10rem;
 }
 
-.celulares-sections-container{
+.detail-page{
+    background-color: #09011f;
+}
+
+.producto-detail-container{
+    width: 80%;
+    height: 40rem;
+    background-color: #281842;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+}
+
+.producto-detail-container img{
+    width: 35rem;
+    height: 35rem;
+}
+
+.producto-details{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #1E1E1E;
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.volver-btn{
+    background-color: #342a8e;
+    text-decoration: none;
+    text-align: center;
+    font-family: alata;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    width: 10rem;
+}
+
+
+
+.producto-details .review-fav-container{
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.producto-details h1{
+    color: var(--text);
+    font-size: 2.2rem;
+    font-family: deca;
+    
+}
+
+.producto-details .fav-icon{
+    height: 100%;
+}
+
+.detail-precio{
+    color: var(--accent);
+    font-family: deca;
+    font-size: 2.5rem;
+    margin: 3rem 0;
+}
+
+.product-sections-container{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -108,10 +177,12 @@ header {
     margin: 4rem 0;
 }
 
+
+
 .side-filters-container{
     min-width: 300px;
     min-height: 30rem;
-    width: 20%;
+    width: 23%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,6 +209,21 @@ header {
     font-size: 1rem;
 }
 
+.applied-filters-container{
+    min-height: 4rem;
+}
+.select-dropdown svg{
+    color: #ff20e1;
+}
+
+#order-select-label {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    color: #ff20e1;
+}
+
+
 .price-slider{
     width: 100%;
     padding: 2.5rem 1rem 0 1rem;
@@ -150,6 +236,11 @@ header {
 .search-section-input{
     width: 100%;
     border-radius: 2rem;
+}
+
+.searchbar-input::placeholder{
+    color: var(--secondary-light);
+    font-family: alata
 }
 
 .order-selector{
@@ -275,21 +366,31 @@ header {
     justify-content: center;
     background-color: #2727275e;
     width: 100%;
-    padding: 0rem 0;
     min-width: 700px;
     font-size: 1.3rem;
+    height: 3rem;
     font-family: deca, sans-serif;
 }
 
-.links-container a {
+.nav-link {
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    height: 100%;
     padding: .5rem 1rem;
     margin: 0 .5rem;
     color: var(--secondary-light);
 }
 
-.links-container a.active{
+
+.nav-link:hover {
+    border-radius: 2rem;
+    background-color: #342a8e36;
+}
+
+.nav-link.active{
     color: var(--accent)
 }
 
@@ -310,6 +411,8 @@ header {
     justify-content: center;
 }
 
+
+
 .dropdown-icon{
     width: 2rem;
     color: #B996FF;
@@ -320,7 +423,7 @@ header {
     background: radial-gradient(circle, rgba(52,42,142,1) 0%, #09011f 100%);
 }
 
-.celulares-page{
+.product-page{
     background-color: #13032b;
 }
 
@@ -388,7 +491,7 @@ header {
 }
 
 
-.special-offers-section h1, .celulares-page h1 {
+.special-offers-section h1, .product-page h1 {
     font-family: deca;
     font-size: 2.5rem;
     padding: 1rem 1.5rem;
@@ -482,9 +585,12 @@ header {
 
 
 .card.producto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
-    min-height: none;
     gap: 1.4rem;
+    min-height: 100%;
     width: 30%;
     padding: 1rem 1rem;
     margin: 0;
@@ -497,19 +603,19 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-.card .añadir-carrito-btn{
+.card.producto .agregar-carrito-btn{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: .4rem 0;
+    align-self: stretch;
     font-family: alata;
     font-size: 1rem;    
 }
 
-.card .añadir-carrito-btn span{
+.card .agregar-carrito-btn span{
     align-items: center;
 }
+
+
 .card.producto img{
     align-self: center;
     aspect-ratio: 1/1;
@@ -527,6 +633,7 @@ header {
 
 .card.oferta button.add-to-cart-btn {
     position: absolute;
+    align-self: flex-end;
     z-index: 1;
     right: -1rem;
     top: -1rem;
@@ -596,10 +703,10 @@ header {
     gap: 1rem;
 }
 
-.button-container button {
+.button-container button, .button-container a {
     padding: .5rem 1rem;
     font-size: 1.2rem;
-    font-family: deca;
+    font-family: alata;
     border-radius: .8rem;
     cursor: pointer;
 }

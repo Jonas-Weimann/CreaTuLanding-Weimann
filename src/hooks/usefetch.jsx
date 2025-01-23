@@ -9,7 +9,6 @@ const useFetch = (url) => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
-        console.log(url)
         if (!response.ok) {
           throw new Error("Error al cargar los datos: " + response.statusText);
         }

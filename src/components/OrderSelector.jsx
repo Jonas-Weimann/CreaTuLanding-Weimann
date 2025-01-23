@@ -13,10 +13,19 @@ export default function BasicSelect() {
   };
 
   return (
-    <Box sx={{ textAlign:"center", minWidth:180, width: "10%", height:"1rem", borderRadius: "2rem"}}>
-      <FormControl fullWidth >
-        <InputLabel  id="order-select-label" sx={{ color: "#ff20e1", fontFamily:"alata", backdropFilter:"blur(4px)", borderRadius:"1rem", padding:"2px 9px"}}>Ordenar por</InputLabel>
+    <Box sx={{ textAlign:"center", minWidth:180, width: "10%", borderRadius: "2rem"}}>
+      <FormControl fullWidth className='form-container'>
+        <InputLabel  id="order-select-label" sx={{ display:"flex", alignItems:"center", justifyContent:"center", textAlign:"center", fontFamily:"alata", background:"#13032b", borderRadius:"1rem", padding:"0px 9px", position:"absolute", top:-10}}>Ordenar por</InputLabel>
         <Select
+        className='select-dropdown'
+        MenuProps={{
+          PaperProps: {
+            style: {
+              maxHeight: 250,
+            },
+          },
+          disableScrollLock: true,
+        }}
         sx={{ color: "#ff20e1", fontFamily:"alata", fontSize:"1.2rem", borderRadius: "2rem", height:"2.5rem", border: "2px #ff20e1 solid" }}
           labelId="order-select-label"
           id="order-select"

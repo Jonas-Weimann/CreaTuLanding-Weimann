@@ -19,6 +19,7 @@ export const DailyOfferSection = () => {
         <div className="oferta-container">
           <h3>OFERTA DEL DIA</h3>
           <OfertaDelDiaCard 
+          id={ofertaSeleccionada.id}
           name={ofertaSeleccionada.nombre}
           oldPrice={ofertaSeleccionada.precioOriginal}
           price={ofertaSeleccionada.precio}

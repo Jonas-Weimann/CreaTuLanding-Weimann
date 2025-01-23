@@ -22,6 +22,7 @@ export const AllOffersSection = () => {
         {data.map((oferta) => (
           <OfertaCard
             key={oferta.id}
+            id={oferta.id}
             name={oferta.nombre}
             src={oferta.imagen}
             oldPrice={oferta.precioOriginal}

@@ -1,16 +1,25 @@
 import './App.css'
+import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Ofertas } from './pages/Ofertas/Ofertas';
 import { Celulares } from './pages/Celulares/Celulares';
+import { Cargadores } from './pages/Cargadores/Cargadores';
+import { Sonido } from './pages/Sonido/Sonido';
+import { Iluminacion } from './pages/Iluminacion/Iluminacion'
 import { Error } from './pages/Error/Error';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
+import { CartProvider } from './contexts/CartContext';
+
+
 
 export const App = ()=>{ 
-
+  const [darkMode, setDarkMode] = useState(true);
   const theme = createTheme({
     palette: {
+      mode: darkMode ? 'dark' : 'light',
       primary: {
         light: "#9282e4",
         main: "#332a62",
@@ -38,23 +47,29 @@ export const App = ()=>{
     },
   });
 
+
+
   return (
+    
     <ThemeProvider  theme={theme}>
-      <BrowserRouter>
-        <Header/>
-        <Routes>
-          <Route path='/CreaTuLanding-Weimann/' element={<Ofertas/>}></Route>
-          <Route path='/ofertas' element={<Ofertas/>}></Route>
-          <Route path='/producto/:id'></Route>
-          <Route path='/celulares' element={<Celulares/>}></Route>
-          <Route path='/cargadores' element={<Ofertas/>}></Route>
-          <Route path='/sonido' element={<Ofertas/>}></Route>
-          <Route path='/iluminacion' element={<Ofertas/>}></Route>
-          <Route path='/servicios' element={<Ofertas/>}></Route>
-          <Route path='*' element={<Error/>}></Route>
-        </Routes>
-        <Footer/>
-    </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Header/>
+          <Routes>
+            <Route path='/NucleoTechnology/' element={<Ofertas/>}></Route>
+            <Route path='/NucleoTechnology/Ofertas' element={<Ofertas/>}></Route>
+            <Route path='/NucleoTechnology/Ofertas/:idProducto' element={<ItemDetailContainer url="http://localhost:5173/NucleoTechnology/db/ofertas.json" page="Ofertas"/>}></Route>
+            <Route path='/NucleoTechnology/Celulares' element={<Celulares/>}></Route>
+            <Route path='/NucleoTechnology/Celulares/:idProducto' element={<ItemDetailContainer url="http://localhost:5173/NucleoTechnology/db/celulares.json" page="Celulares"/>} ></Route>
+            <Route path='/NucleoTechnology/Cargadores' element={<Cargadores/>}></Route>
+            <Route path='/NucleoTechnology/Sonido' element={<Sonido/>}></Route>
+            <Route path='/NucleoTechnology/Iluminacion' element={<Iluminacion/>}></Route>
+            <Route path='/NucleoTechnology/Servicios' element={<Ofertas/>}></Route>
+            <Route path='*' element={<Error/>}></Route>
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
+      </CartProvider>
     </ThemeProvider>
 
   )

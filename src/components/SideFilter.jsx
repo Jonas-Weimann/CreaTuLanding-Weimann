@@ -63,7 +63,7 @@ export const SideFilter = ({filtrosActivos, url, options, onFilterChange, onRemo
         {keys.map(key=>(
           <AccordionDropdown
             key={ "accordion-" + key} 
-            title={key} 
+            title={key.toUpperCase()} 
             options={options[key]} 
             selected={filtrosActivos[key] || []}
             onFilterChange={(selectedFilters) =>
