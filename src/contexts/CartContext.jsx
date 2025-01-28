@@ -1,15 +1,14 @@
-import "toastify-js/src/toastify.css"
-import {useState, createContext, useContext} from 'react'
-import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css";
+import { useState, createContext, useContext } from "react";
+import Toastify from "toastify-js";
 
-const CartContext = createContext()
+const CartContext = createContext();
 
-export const CartProvider = ({children}) => {
-  const [productCount, setProductCount] = useState(0)
-  const [productList, setProductList] = useState([])
+export const CartProvider = ({ children }) => {
+  const [productCount, setProductCount] = useState(0);
+  const [productList, setProductList] = useState([]);
 
-  const addToCart = (product) =>{
-
+  const addToCart = (product) => {
     Toastify({
       text: "Producto añadido con éxito",
       duration: 3000,
@@ -20,7 +19,7 @@ export const CartProvider = ({children}) => {
       position: "right",
       stopOnFocus: true,
       style: {
-        color:"#00ffff",
+        color: "#00ffff",
         border: "#00ffff 2px solid",
         fontFamily: "alata",
         fontSize: "1rem",
@@ -29,28 +28,38 @@ export const CartProvider = ({children}) => {
         gap: "1rem",
         backdropFilter: "blur(1rem)",
         background: "transparent",
-        borderRadius: "2rem"
-      }
-    }).showToast()    
+        borderRadius: "2rem",
+      },
+    }).showToast();
 
-    setProductList((prevProducts)=>[...prevProducts, product])
-    setProductCount((prevCount) => prevCount + 1)
+    setProductList((prevProducts) => [...prevProducts, product]);
+    setProductCount((prevCount) => prevCount + 1);
+  };
 
-  }
+  const removeFromCart = (productId) => {
+    setProductList((prevProducts) =>
+      prevProducts.filter((product) => product.id !== productId)
+    );
+    setProductCount((prevCount) => Math.max(prevCount - 1, 0));
+  };
 
-  const removeFromCart = (productId) =>{
-    setProductList((prevProducts)=> prevProducts.filter((product) => product.id !== productId))
-    setProductCount((prevCount) => Math.max(prevCount - 1, 0))
-
-  }
-
-
+  const resetCart = () => setProductCount(0);
 
   return (
-    <CartContext.Provider value={{productCount, productList, addToCart, removeFromCart}}>{children}</CartContext.Provider>
-  )
-}
+    <CartContext.Provider
+      value={{
+        productCount,
+        productList,
+        addToCart,
+        removeFromCart,
+        resetCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
 
 export const useCart = () => {
-  return useContext(CartContext)
-}
+  return useContext(CartContext);
+};
