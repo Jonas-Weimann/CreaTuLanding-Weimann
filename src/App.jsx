@@ -1,6 +1,4 @@
 import "./App.css";
-import { db } from "./config/firebaseConfig";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -12,6 +10,7 @@ import { Celulares } from "./pages/Celulares/Celulares";
 import { Cargadores } from "./pages/Cargadores/Cargadores";
 import { Sonido } from "./pages/Sonido/Sonido";
 import { Iluminacion } from "./pages/Iluminacion/Iluminacion";
+import { Admin } from "./pages/Admin/Admin";
 import { Error } from "./pages/Error/Error";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { CartProvider } from "./contexts/CartContext";
@@ -88,12 +87,40 @@ export const App = () => {
                 path="/NucleoTechnology/Cargadores"
                 element={<Cargadores />}
               />
+              <Route
+                path="/NucleoTechnology/Cargadores/:idProducto"
+                element={
+                  <ItemDetailContainer
+                    url="http://localhost:5173/NucleoTechnology/db/cargadores.json"
+                    page="Cargadores"
+                  />
+                }
+              />
               <Route path="/NucleoTechnology/Sonido" element={<Sonido />} />
+              <Route
+                path="/NucleoTechnology/Sonido/:idProducto"
+                element={
+                  <ItemDetailContainer
+                    url="http://localhost:5173/NucleoTechnology/db/sonido.json"
+                    page="Sonido"
+                  />
+                }
+              />
               <Route
                 path="/NucleoTechnology/Iluminacion"
                 element={<Iluminacion />}
               />
+              <Route
+                path="/NucleoTechnology/Iluminacion/:idProducto"
+                element={
+                  <ItemDetailContainer
+                    url="http://localhost:5173/NucleoTechnology/db/iluminacion.json"
+                    page="Iluminacion"
+                  />
+                }
+              />
               <Route path="/NucleoTechnology/Servicios" element={<Ofertas />} />
+              <Route path="/NucleoTechnology/Admin" element={<Admin />} />
               <Route path="*" element={<Error />}></Route>
             </Routes>
           </UserProvider>

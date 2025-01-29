@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export const DailyOfferSection = () => {
 
-  const {data, loading, error} = useFetch('https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/ofertas.json')
+  const {data, loading, error} = useFetch('https://jonas-weimann.github.io/NucleoTechnology/db/ofertas.json')
     
   if(loading) return <CircularProgress color='secondary'></CircularProgress>
   if(error) return <p>Error: {error.message}</p>

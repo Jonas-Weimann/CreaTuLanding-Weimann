@@ -8,7 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export const AllOffersSection = () => {
   // Usamos la ruta correcta para acceder al archivo JSON en public
-  const { data, loading, error } = useFetch("https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/ofertas.json");
+  const { data, loading, error } = useFetch("https://jonas-weimann.github.io/NucleoTechnology/db/ofertas.json");
 
   if (loading) return <CircularProgress color="secondary"></CircularProgress>;
   if (error) return <p>Error: {error.message}</p>;

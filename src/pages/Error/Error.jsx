@@ -8,7 +8,7 @@ export const Error = () => {
             <div className="error-container">
                 <h1>Error 404</h1>
                 <p>La página que buscas no existe o ha sido movida.</p>
-                <Link to="/">
+                <Link to="/NucleoTechnology/">
                     Volver al inicio
                 </Link>
             </div>

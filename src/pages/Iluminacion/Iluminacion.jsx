@@ -34,7 +34,7 @@ export const Iluminacion = () => {
           <h1>Transforma tu ambiente con un simple toque de luz</h1>
           <div className="product-sections-container">
             <SideFilter filtrosActivos={filtrosActivos} onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} options={dropdowns} url="http://localhost:5173/NucleoTechnology/db/iluminacion.json"></SideFilter>
-            <SearchSection filtrosActivos={filtrosActivos} page="Iluminación" onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} url="http://localhost:5173/NucleoTechnology/db/iluminacion.json"/>
+            <SearchSection filtrosActivos={filtrosActivos} page="Iluminacion" onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} url="http://localhost:5173/NucleoTechnology/db/iluminacion.json"/>
           </div>
     </main>
   )

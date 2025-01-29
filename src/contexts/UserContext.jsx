@@ -25,6 +25,7 @@ export const UserProvider = ({ children }) => {
     setUsername("");
     setEmail("");
     resetCart();
+    navigate("/NucleoTechnology/Ofertas", { replace: true });
   };
 
   return (

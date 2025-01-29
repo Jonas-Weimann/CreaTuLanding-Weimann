@@ -1100,3 +1100,11 @@ button.swal2-styled{
 .welcome-widget::first-line{
     color: var(--text);
 }
+
+.admin-page{
+    background-color: #281842;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -33,8 +33,8 @@ export const Celulares = () => {
     <main className="product-page main">
           <h1>Todo lo que tu smartphone necesita, en un solo lugar</h1>
           <div className="product-sections-container">
-            <SideFilter filtrosActivos={filtrosActivos} onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} options={dropdowns} url="https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/celulares.json"></SideFilter>
-            <SearchSection filtrosActivos={filtrosActivos} page="Celulares" onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} url="https://jonas-weimann.github.io/CreaTuLanding-Weimann/db/celulares.json"/>
+            <SideFilter filtrosActivos={filtrosActivos} onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} options={dropdowns} url="https://jonas-weimann.github.io/NucleoTechnology/db/celulares.json"></SideFilter>
+            <SearchSection filtrosActivos={filtrosActivos} page="Celulares" onFilterChange={handleFilterChange} onRemoveFilter={handleRemoveFilter} url="https://jonas-weimann.github.io/NucleoTechnology/db/celulares.json"/>
           </div>
     </main>
   )
