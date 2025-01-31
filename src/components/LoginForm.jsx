@@ -15,13 +15,6 @@ export const LogInForm = ({
         <h2>Iniciar sesión</h2>
         <div className="input-box">
           <span className="icon">
-            <PersonIcon />
-          </span>
-          <input type="text" required name="username" />
-          <label>Nombre de usuario</label>
-        </div>
-        <div className="input-box">
-          <span className="icon">
             <EmailIcon />
           </span>
           <input type="email" required name="email" />

@@ -1,12 +1,11 @@
 import { useState, createContext, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "./CartContext";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
-  const { resetCart } = useCart();
+  const [favItems, setFavItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -17,15 +16,14 @@ export const UserProvider = ({ children }) => {
     setUsername(user.displayName);
     setEmail(user.email);
     if (user.email === "jonas.weimann04@gmail.com") setAdmin(true);
-    navigate("/NucleoTechnology/Ofertas", { replace: true });
+    navigate("/NucleoTechnology/Ofertas", { replace: false });
   };
 
   const logout = () => {
     setLoggedIn(false);
     setUsername("");
     setEmail("");
-    resetCart();
-    navigate("/NucleoTechnology/Ofertas", { replace: true });
+    setAdmin(false);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { CartWidget } from "./CartWidget";
 import { SearchBar } from "./SearchBar";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Logo from "../assets/images/logo.svg";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { useUser } from "../contexts/UserContext";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const { username, loggedIn, logout, admin } = useUser();
   return (
     <header className="header">
@@ -54,13 +55,33 @@ export const Header = () => {
               />
             </Link>
           )}
-          <Link>
-            <FavoriteBorderIcon
-              color="pink"
-              sx={{ width: "2rem", height: "2rem" }}
-            />
-          </Link>
-          <Link>
+          <FavoriteBorderIcon
+            cursor="pointer"
+            color="pink"
+            sx={{ width: "2rem", height: "2rem" }}
+            onClick={
+              loggedIn
+                ? () =>
+                    navigate("/NucleoTechnology/Favoritos", { replace: true })
+                : () =>
+                    Swal.fire({
+                      title: "Atención",
+                      text: "Debes iniciar sesión para guardar tus productos favoritos",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#d33",
+                      cancelButtonColor: "#656766",
+                      confirmButtonText: "Iniciar sesión",
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        navigate("/NucleoTechnology/LoginRegister", {
+                          replace: true,
+                        });
+                      }
+                    })
+            }
+          />
+          <Link to="/NucleoTechnology/Cart" className="cart-widget">
             <CartWidget />
           </Link>
         </div>

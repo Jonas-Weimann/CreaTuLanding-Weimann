@@ -1,27 +1,33 @@
+import { getDocs, collection, getFirestore } from "firebase/firestore";
+import { app } from "../config/firebaseConfig";
 import { useEffect, useState } from "react";
 
-const useFetch = (url) => {
+const useFetch = (collectionName) => {
+  const db = getFirestore(app);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchProducts = async () => {
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Error al cargar los datos: " + response.statusText);
-        }
-        const data = await response.json();
-        setData(data);
-      } catch (err) {
-        setError(err);
-      } finally {
+        const productRef = collection(db, collectionName);
+        const snapshot = await getDocs(productRef);
+
+        const productsList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setData(productsList);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setError("Error al consultar datos");
         setLoading(false);
       }
     };
-    fetchData();
-  }, [url]);
+    fetchProducts();
+  }, []);
 
   return { data, loading, error };
 };

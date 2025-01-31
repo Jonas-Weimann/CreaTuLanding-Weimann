@@ -1,18 +1,37 @@
 import "toastify-js/src/toastify.css";
 import { useState, createContext, useContext } from "react";
 import Toastify from "toastify-js";
+import { useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [productCount, setProductCount] = useState(0);
   const [productList, setProductList] = useState([]);
 
   const addToCart = (product) => {
+    setProductList((prevProducts) => {
+      const existingProduct = prevProducts.find(
+        (item) => item.id === product.id
+      );
+      if (existingProduct) {
+        return prevProducts.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...prevProducts, { ...product, quantity: 1 }];
+    });
+    setProductCount((prevCount) => prevCount + 1);
     Toastify({
       text: "Producto añadido con éxito",
       duration: 3000,
-      destination: "http://localhost:5173/NucleoTechnology/Cart",
+      onClick: () =>
+        navigate("/NucleoTechnology/Cart", {
+          replace: true,
+        }),
       newWindow: false,
       close: true,
       gravity: "top",
@@ -31,19 +50,36 @@ export const CartProvider = ({ children }) => {
         borderRadius: "2rem",
       },
     }).showToast();
-
-    setProductList((prevProducts) => [...prevProducts, product]);
-    setProductCount((prevCount) => prevCount + 1);
   };
 
-  const removeFromCart = (productId) => {
-    setProductList((prevProducts) =>
-      prevProducts.filter((product) => product.id !== productId)
-    );
+  const removeFromCart = (product) => {
+    setProductList((prevProducts) => {
+      const productToRemove = prevProducts.find(
+        (prod) => prod.id === product.id
+      );
+      if (productToRemove.quantity === 1) {
+        return prevProducts.filter((prod) => prod.id !== product.id);
+      } else {
+        return prevProducts.map((prod) =>
+          prod.id === product.id
+            ? { ...prod, quantity: prod.quantity - 1 }
+            : prod
+        );
+      }
+    });
     setProductCount((prevCount) => Math.max(prevCount - 1, 0));
   };
 
-  const resetCart = () => setProductCount(0);
+  const cleanCart = () => {
+    setProductCount(0);
+    setProductList([]);
+  };
+
+  const getTotal = () => {
+    return productList.reduce((total, item) => {
+      return total + item.precio * item.quantity;
+    }, 0);
+  };
 
   return (
     <CartContext.Provider
@@ -52,7 +88,8 @@ export const CartProvider = ({ children }) => {
         productList,
         addToCart,
         removeFromCart,
-        resetCart,
+        cleanCart,
+        getTotal,
       }}
     >
       {children}

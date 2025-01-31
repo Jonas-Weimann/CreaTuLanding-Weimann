@@ -15,6 +15,7 @@ import { Error } from "./pages/Error/Error";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { CartProvider } from "./contexts/CartContext";
 import { UserProvider } from "./contexts/UserContext";
+import { Cart } from "./components/Cart";
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -51,8 +52,8 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <CartProvider>
-          <UserProvider>
+        <UserProvider>
+          <CartProvider>
             <Header />
             <Routes>
               <Route path="/NucleoTechnology/" element={<Ofertas />} />
@@ -120,11 +121,13 @@ export const App = () => {
                 }
               />
               <Route path="/NucleoTechnology/Servicios" element={<Ofertas />} />
+              <Route path="/NucleoTechnology/Favoritos" element={<Admin />} />
               <Route path="/NucleoTechnology/Admin" element={<Admin />} />
+              <Route path="/NucleoTechnology/Cart" element={<Cart />} />
               <Route path="*" element={<Error />}></Route>
             </Routes>
-          </UserProvider>
-        </CartProvider>
+          </CartProvider>
+        </UserProvider>
         <Footer />
       </BrowserRouter>
     </ThemeProvider>
