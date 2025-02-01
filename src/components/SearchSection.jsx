@@ -2,6 +2,7 @@ import { SearchBar } from "./SearchBar";
 import ItemListContainer from "./ItemListContainer";
 
 export const SearchSection = ({
+  data,
   page,
   filtrosActivos,
   onFilterChange,
@@ -15,6 +16,7 @@ export const SearchSection = ({
         onFilterChange={onFilterChange}
       ></SearchBar>
       <ItemListContainer
+        data={data}
         page={page}
         filtrosActivos={filtrosActivos}
         onRemoveFilter={onRemoveFilter}

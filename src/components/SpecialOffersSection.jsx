@@ -1,14 +1,16 @@
+import { OfertasSlider } from "./OfertasSlider";
+import BannerOferta from "../assets/images/BANNER.png";
 
-import {OfertasSlider} from './OfertasSlider'
-import BannerOferta from "../assets/images/BANNER.png"
-
-export const SpecialOffersSection = () => {
-
+export const SpecialOffersSection = ({ data }) => {
   return (
-    <div className='special-offers-section'>
+    <div className="special-offers-section">
       <h1>Renueva tus dispositivos y ahorra con nuestras ofertas</h1>
-      <img src={BannerOferta} alt="10% off en sonido" className='banner-oferta'/>
-      <OfertasSlider/>
+      <img
+        src={BannerOferta}
+        alt="10% off en sonido"
+        className="banner-oferta"
+      />
+      <OfertasSlider data={data} />
     </div>
-    )
-}
+  );
+};

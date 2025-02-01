@@ -1,19 +1,17 @@
-import useFetch from "../hooks/usefetch";
 import ProductCard from "./ProductCard";
 import OrderSelector from "./OrderSelector";
 import { useState, useEffect } from "react";
 import { Chip } from "@mui/material";
 import { Stack } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 
 export default function ItemListContainer({
   filtrosActivos,
   onRemoveFilter,
+  data,
   page,
 }) {
   const [order, setOrder] = useState("Novedades");
   const [productosFiltrados, setProductosFiltrados] = useState([]);
-  const { data, loading, error } = useFetch(page);
 
   function precioEntre(numero, minimo, maximo) {
     return numero >= minimo && numero <= maximo;
@@ -55,7 +53,7 @@ export default function ItemListContainer({
           );
         }
 
-        if (key == "precioValue") {
+        if (key == "precio") {
           return precioEntre(valueProducto, filtro[0], filtro[1]);
         }
 
@@ -65,16 +63,15 @@ export default function ItemListContainer({
       });
     };
 
-    if (data) {
-      const resultadosFiltrados = data.filter((producto) =>
+    const fetchFilteredProducts = async () => {
+      const resultadosFiltrados = await data.filter((producto) =>
         cumpleFiltros(producto, filtrosActivos)
       );
       setProductosFiltrados(resultadosFiltrados);
-    }
-  }, [filtrosActivos, data]);
+    };
 
-  if (loading) return <CircularProgress color="secondary" />;
-  if (error) return <p>Error: {error.message}</p>;
+    fetchFilteredProducts();
+  }, [filtrosActivos, data]);
 
   return (
     <Stack

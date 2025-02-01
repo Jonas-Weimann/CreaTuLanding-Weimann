@@ -1,6 +1,9 @@
 import { SideFilter } from "../../components/SideFilter";
 import { SearchSection } from "../../components/SearchSection";
 import { useState } from "react";
+import { LoadingPage } from "../Loading/LoadingPage";
+import { FetchError } from "../Error/FetchError";
+import useFetch from "../../hooks/usefetch";
 
 export const Cargadores = () => {
   const [filtrosActivos, setFiltrosActivos] = useState({});
@@ -39,25 +42,36 @@ export const Cargadores = () => {
     potencia: ["5W", "10W", "30W", "45W"],
     puertos: [1, 2, 3, 4],
   };
+  const { data, loading, error } = useFetch("Cargadores");
 
   return (
-    <main className="product-page main">
-      <h1>Energía al instante para tus dispositivos</h1>
-      <div className="product-sections-container">
-        <SideFilter
-          filtrosActivos={filtrosActivos}
-          page="Cargadores"
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-          options={dropdowns}
-        ></SideFilter>
-        <SearchSection
-          filtrosActivos={filtrosActivos}
-          page="Cargadores"
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-        />
-      </div>
-    </main>
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : error ? (
+        <FetchError />
+      ) : (
+        <main className="product-page main">
+          <h1>Energía al instante para tus dispositivos</h1>
+          <div className="product-sections-container">
+            <SideFilter
+              data={data}
+              filtrosActivos={filtrosActivos}
+              page="Cargadores"
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+              options={dropdowns}
+            ></SideFilter>
+            <SearchSection
+              data={data}
+              filtrosActivos={filtrosActivos}
+              page="Cargadores"
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+            />
+          </div>
+        </main>
+      )}
+    </>
   );
 };

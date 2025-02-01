@@ -1,6 +1,9 @@
 import { SideFilter } from "../../components/SideFilter";
 import { SearchSection } from "../../components/SearchSection";
 import { useState } from "react";
+import { LoadingPage } from "../Loading/LoadingPage";
+import { FetchError } from "../Error/FetchError";
+import useFetch from "../../hooks/usefetch";
 
 export const Iluminacion = () => {
   const [filtrosActivos, setFiltrosActivos] = useState({});
@@ -33,25 +36,36 @@ export const Iluminacion = () => {
     potencia: ["5W", "10W", "30W", "45W"],
     marca: ["Philips", "Xiaomi", "Samsung", "Aukey"],
   };
+  const { data, loading, error } = useFetch("Iluminacion");
 
   return (
-    <main className="product-page main">
-      <h1>Transforma tu ambiente con un simple toque de luz</h1>
-      <div className="product-sections-container">
-        <SideFilter
-          filtrosActivos={filtrosActivos}
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-          page="Iluminacion"
-          options={dropdowns}
-        ></SideFilter>
-        <SearchSection
-          filtrosActivos={filtrosActivos}
-          page="Iluminacion"
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-        />
-      </div>
-    </main>
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : error ? (
+        <FetchError />
+      ) : (
+        <main className="product-page main">
+          <h1>Transforma tu ambiente con un simple toque de luz</h1>
+          <div className="product-sections-container">
+            <SideFilter
+              data={data}
+              filtrosActivos={filtrosActivos}
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+              page="Iluminacion"
+              options={dropdowns}
+            ></SideFilter>
+            <SearchSection
+              data={data}
+              filtrosActivos={filtrosActivos}
+              page="Iluminacion"
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+            />
+          </div>
+        </main>
+      )}
+    </>
   );
 };

@@ -1,6 +1,9 @@
 import { SideFilter } from "../../components/SideFilter";
 import { SearchSection } from "../../components/SearchSection";
 import { useState } from "react";
+import useFetch from "../../hooks/usefetch";
+import { LoadingPage } from "../Loading/LoadingPage";
+import { FetchError } from "../Error/FetchError";
 
 export const Celulares = () => {
   const [filtrosActivos, setFiltrosActivos] = useState({});
@@ -78,24 +81,36 @@ export const Celulares = () => {
     ],
   };
 
+  const { data, loading, error } = useFetch("Celulares");
+
   return (
-    <main className="product-page main">
-      <h1>Todo lo que tu smartphone necesita, en un solo lugar</h1>
-      <div className="product-sections-container">
-        <SideFilter
-          filtrosActivos={filtrosActivos}
-          page="Celulares"
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-          options={dropdowns}
-        ></SideFilter>
-        <SearchSection
-          filtrosActivos={filtrosActivos}
-          page="Celulares"
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-        />
-      </div>
-    </main>
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : error ? (
+        <FetchError />
+      ) : (
+        <main className="product-page main">
+          <h1>Todo lo que tu smartphone necesita, en un solo lugar</h1>
+          <div className="product-sections-container">
+            <SideFilter
+              data={data}
+              filtrosActivos={filtrosActivos}
+              page="Celulares"
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+              options={dropdowns}
+            ></SideFilter>
+            <SearchSection
+              data={data}
+              filtrosActivos={filtrosActivos}
+              page="Celulares"
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+            />
+          </div>
+        </main>
+      )}
+    </>
   );
 };

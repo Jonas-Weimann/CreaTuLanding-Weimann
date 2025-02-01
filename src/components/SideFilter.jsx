@@ -1,12 +1,11 @@
 import Slider from "@mui/material/Slider";
 import { useEffect, useState } from "react";
-import useFetch from "../hooks/usefetch";
 import AccordionDropdown from "./AccordionDropdown";
 import { formatear } from "../utilities/formateo";
 
 export const SideFilter = ({
   filtrosActivos,
-  page,
+  data,
   options,
   onFilterChange,
   onRemoveFilter,
@@ -16,18 +15,14 @@ export const SideFilter = ({
   const [precioMaximo, setPrecioMaximo] = useState(100000);
   const [value, setValue] = useState([0, precioMaximo]);
 
-  let { data, loading, error } = useFetch(page);
-
   useEffect(() => {
-    if (data) {
-      const listaDePrecios = data.map((producto) => producto.precio);
+    async function fetchData() {
+      const listaDePrecios = await data.map((producto) => producto.precio);
       setPrecioMaximo(Math.max(...listaDePrecios));
       setPrecioMinimo(Math.min(...listaDePrecios));
     }
-    if (error) {
-      setPrecioMaximo(299999);
-    }
-  }, [data, error]);
+    fetchData();
+  }, [data]);
 
   const handleDropdownFilterChange = (dropdownKey, selectedFilters) => {
     onFilterChange({ ...filtrosActivos, [dropdownKey]: selectedFilters });
@@ -53,7 +48,7 @@ export const SideFilter = ({
           valueLabelDisplay="on"
           valueLabelFormat={formatear}
           getAriaValueText={formatear}
-          disabled={loading || precioMaximo === 0}
+          disabled={precioMaximo === 0}
         />
       </div>
       <div className="accordions-container">

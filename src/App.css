@@ -94,7 +94,7 @@ header {
     border-radius: 2rem;
 }
 
-.product-page, .detail-page, .ofertas-page, .login-page, .cart-page{
+.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page{
     padding-top: 10rem;
 }
 
@@ -420,6 +420,7 @@ header {
 
 .ofertas-page {
     width: 100%;
+    min-height: 100dvh;
     background: radial-gradient(circle, rgba(52,42,142,1) 0%, #09011f 100%);
 }
 
@@ -1109,14 +1110,7 @@ button.swal2-styled{
     color: var(--text);
 }
 
-.admin-page{
-    background-color: #281842;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
+/*CART PAGE STYLES*/
 .cart-page{
     background: #011c1f;
     display: flex;
@@ -1298,4 +1292,105 @@ button.swal2-styled{
     background-position: center;
     background-repeat: no-repeat;
     background-color: white;
+}
+
+/*ADMIN PAGE STYLES*/
+.admin-page{
+    background-color: #281842;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-page h1{
+    font-family: deca;
+    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0 .5rem 0;
+    background-color: #15003083;
+    border-radius: 2rem;
+    color: white;
+}
+
+.admin-page table{
+    width: 80%;
+    border-collapse: collapse;
+    border-radius: 3rem;
+}
+
+.admin-page table thead{
+    background-color: #2e2d03;
+    height: 3rem;
+    color: var(--accent);
+    font-family: alata;
+    font-size: 1.3rem;
+    border-radius: 3rem;
+}
+
+
+.admin-page table thead tr th{
+    padding: .5rem 2rem;
+}
+.admin-page table thead tr th:first-child{
+    border-radius: 1rem 0 0 0;
+}
+.admin-page table thead tr th:last-child{
+    border-radius: 0 1rem 0 0;
+}
+
+.admin-page table tbody{
+    background-color: var(--primary-light);
+    color: #ccc;
+    height: 3rem;
+    font-family: alata;
+    font-size: 1rem;
+}
+.admin-page table tbody tr td{
+    text-align: center;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+}
+
+.admin-page table tbody tr td img{
+    width: 6rem;
+}
+
+.admin-page table tbody tr:nth-child(even){
+    background-color: var(--primary-dark);
+}
+
+.admin-page table tbody tr td:nth-child(1){
+    width: 5%;
+}
+.admin-page table tbody tr td:nth-child(2){
+    width: 10%;
+}
+.admin-page table tbody tr td:nth-child(3){
+    width: 20%;
+}
+.admin-page table tbody tr td:nth-child(4){
+    width: 25%;
+}
+.admin-page table tbody tr td:nth-child(5){
+    width: 10%;
+}
+.admin-page table tbody tr td:nth-child(6){
+    width: 5%;
+}
+.admin-page table tbody tr td:nth-child(7){
+    width: 10%;
+}
+.admin-page table tbody tr td:nth-child(8){
+    width: 15%;
+}
+
+/*LOADING PAGE STYLES*/
+.loading-page{
+    background-color: #13032b;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

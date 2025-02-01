@@ -1,6 +1,9 @@
 import { SideFilter } from "../../components/SideFilter";
 import { SearchSection } from "../../components/SearchSection";
 import { useState } from "react";
+import useFetch from "../../hooks/usefetch";
+import { LoadingPage } from "../Loading/LoadingPage";
+import { FetchError } from "../Error/FetchError";
 
 export const Sonido = () => {
   const [filtrosActivos, setFiltrosActivos] = useState({});
@@ -45,24 +48,36 @@ export const Sonido = () => {
     ],
   };
 
+  const { data, loading, error } = useFetch("Sonido");
+
   return (
-    <main className="product-page main">
-      <h1>Sonido claro y potente para cada momento</h1>
-      <div className="product-sections-container">
-        <SideFilter
-          filtrosActivos={filtrosActivos}
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-          options={dropdowns}
-          page="Sonido"
-        ></SideFilter>
-        <SearchSection
-          filtrosActivos={filtrosActivos}
-          page="Sonido"
-          onFilterChange={handleFilterChange}
-          onRemoveFilter={handleRemoveFilter}
-        />
-      </div>
-    </main>
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : error ? (
+        <FetchError />
+      ) : (
+        <main className="product-page main">
+          <h1>Sonido claro y potente para cada momento</h1>
+          <div className="product-sections-container">
+            <SideFilter
+              data={data}
+              filtrosActivos={filtrosActivos}
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+              options={dropdowns}
+              page="Sonido"
+            ></SideFilter>
+            <SearchSection
+              data={data}
+              filtrosActivos={filtrosActivos}
+              page="Sonido"
+              onFilterChange={handleFilterChange}
+              onRemoveFilter={handleRemoveFilter}
+            />
+          </div>
+        </main>
+      )}
+    </>
   );
 };
