@@ -1342,18 +1342,17 @@ button.swal2-styled{
 .admin-page table tbody{
     background-color: var(--primary-light);
     color: #ccc;
-    height: 3rem;
     font-family: alata;
     font-size: 1rem;
 }
-.admin-page table tbody tr td{
+.admin-page table tbody tr{
     text-align: center;
     padding: .5rem 1rem;
-    box-sizing: border-box;
 }
 
 .admin-page table tbody tr td img{
     width: 6rem;
+    aspect-ratio: 1/1;
 }
 
 .admin-page table tbody tr:nth-child(even){
@@ -1381,8 +1380,85 @@ button.swal2-styled{
 .admin-page table tbody tr td:nth-child(7){
     width: 10%;
 }
-.admin-page table tbody tr td:nth-child(8){
-    width: 15%;
+
+.item-detail-edit-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.edit-data-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.edit-image-container, .edit-desc-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%;
+}
+
+.edit-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.item-detail-edit-form img{
+    margin: 2rem 0;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: .5rem;
+    background-color: rgba(2, 2, 2, 0.233);
+}
+
+.item-detail-edit-form input{
+    width: 100%;
+    font-family: deca;
+    font-size: 1rem;
+    color: var(--text);
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+}
+
+.edit-desc-container select{
+    color: var(--text);
+    font-family: deca;
+    background: none;
+    font-size: 1rem;
+}
+
+.edit-desc-container select option{
+    color: var(--text);
+    background: #202020;
+    font-family: deca;
+    font-size: 1rem;
+
+}
+
+.item-detail-edit-form input:focus, select:focus{
+    outline: 2px solid var(--accent);
+    border: none;
+}
+
+.item-detail-edit-form label{
+    align-self: flex-start;
+}
+
+.swal2-popup{
+    min-width: 40rem;
 }
 
 /*LOADING PAGE STYLES*/
