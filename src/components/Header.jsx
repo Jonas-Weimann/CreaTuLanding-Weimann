@@ -5,7 +5,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Logo from "../assets/images/logo.svg";
 import LoginRegisterIcon from "../assets/images/login-register.svg";
-import DropdownIcon from "../assets/images/dropdown-icon.svg";
 import Swal from "sweetalert2";
 import { useUser } from "../contexts/UserContext";
 
@@ -37,6 +36,7 @@ export const Header = () => {
                     showCancelButton: true,
                     confirmButtonColor: "#d33",
                     cancelButtonColor: "#656766",
+                    cancelButtonText: "Cancelar",
                     confirmButtonText: "Cerrar sesión",
                   }).then((result) => {
                     if (result.isConfirmed) {
@@ -141,10 +141,7 @@ export const Header = () => {
         >
           Servicios
         </NavLink>
-        <Link id="nav-todos" className="nav-link">
-          Todos
-          <img src={DropdownIcon} alt="dropdown" className="dropdown-icon" />
-        </Link>
+
         {admin && (
           <NavLink
             to="/NucleoTechnology/Admin"

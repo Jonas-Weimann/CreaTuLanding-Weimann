@@ -94,7 +94,7 @@ header {
     border-radius: 2rem;
 }
 
-.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page{
+.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page, .servicios-page{
     padding-top: 10rem;
 }
 
@@ -492,7 +492,7 @@ header {
 }
 
 
-.special-offers-section h1, .product-page h1 {
+.special-offers-section h1, .product-page h1, .servicios-page h1 {
     font-family: deca;
     font-size: 2.5rem;
     padding: 1rem 1.5rem;
@@ -1301,6 +1301,21 @@ button.swal2-styled{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
+}
+
+.admin-page .admin-add-btn{
+    width: 20%;
+    height: 10rem;
+    background-color: #ffffff1f;
+    border-radius: 1rem;
+    color: var(--accent);
+    border: var(--accent) solid 2px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    font-family: deca;
+    font-size: 1.5rem;
+    
 }
 
 .admin-page h1{
@@ -1381,12 +1396,18 @@ button.swal2-styled{
     width: 10%;
 }
 
-.item-detail-edit-form{
+.item-detail-edit-form, .add-product-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+#dynamic-inputs-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .edit-data-container {
@@ -1424,7 +1445,7 @@ button.swal2-styled{
     background-color: rgba(2, 2, 2, 0.233);
 }
 
-.item-detail-edit-form input{
+.item-detail-edit-form input, .add-product-form input, .add-product-form select, #dynamic-inputs-container input, #dynamic-inputs-container select{
     width: 100%;
     font-family: deca;
     font-size: 1rem;
@@ -1433,14 +1454,14 @@ button.swal2-styled{
     margin: 0 0 1rem 0;
 }
 
-.edit-desc-container select{
+.edit-desc-container select, .add-product-form select, #dynamic-inputs-container select{
     color: var(--text);
     font-family: deca;
     background: none;
     font-size: 1rem;
 }
 
-.edit-desc-container select option{
+.edit-desc-container select option, .add-product-form select option, #dynamic-inputs-container select option{
     color: var(--text);
     background: #202020;
     font-family: deca;
@@ -1448,12 +1469,12 @@ button.swal2-styled{
 
 }
 
-.item-detail-edit-form input:focus, select:focus{
+.item-detail-edit-form input:focus, select:focus, .add-product-form input:focus{
     outline: 2px solid var(--accent);
     border: none;
 }
 
-.item-detail-edit-form label{
+.item-detail-edit-form label, .add-product-form label, #dynamic-inputs-container label{
     align-self: flex-start;
 }
 
@@ -1469,4 +1490,182 @@ button.swal2-styled{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*SERVICIOS PAGE STYLES*/
+
+.servicios-page {
+    gap: 2rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(122, 24, 102);
+    background: radial-gradient(rgb(122, 24, 102) 0%, rgb(3, 3, 33) 70%, rgb(3, 3, 33) 89%);
+  }
+
+.servicios-page h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins, sans-serif;
+    color: #b996ff;
+    font-size: 2.5dvw;
+    text-wrap: wrap;
+    font-weight: 500;
+}
+
+
+.servicios-page .container {
+    width: 80%;
+    margin: 1em 0;
+    height: 40dvw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1em 1em;
+    grid-auto-flow: row;
+    grid-template-areas: "servicio-01 servicio-02 servicio-02 servicio-05" "servicio-03 servicio-03 servicio-04 servicio-05";
+    background-color: rgba(0, 0, 0, 0.219);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.servicios-page .servicio-01 {
+    grid-area: servicio-01;
+    background: url(/assets/images/servicio-01.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+  }
+
+.servicios-page .servicio-01:hover {
+  scale: 1.05;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.servicios-page .servicio-01 h4 {
+  margin: 0.5em 0 0 0.5em;
+  font-family: poppins, sans-serif;
+  font-size: 3dvw;
+  font-weight: 500;
+  color: #d9e520;
+}
+.servicios-page .servicio-01 p {
+    margin: 0 1em;
+    font-family: "alata", sans-serif;
+    font-size: 1.7dvw;
+    font-weight: 500;
+    color: #fff;
+    width: 76%;
+  }
+.servicios-page .servicio-02 {
+  grid-area: servicio-02;
+  background: url(/assets/images/servicio-02.jpg);
+  background-size: cover;
+  border-radius: 20px;
+  transition: all 0.1s ease;
+}
+.servicios-page .servicio-02:hover {
+    scale: 1.05;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.servicios-page .servicio-02 h4 {
+    margin: 0.5em 0 0 0.5em;
+    font-family: poppins, sans-serif;
+    font-size: 3dvw;
+    font-weight: 500;
+    color: #d9e520;
+}
+.servicios-page .servicio-02 p {
+    margin: 0 1em;
+    font-family: "alata", sans-serif;
+    font-size: 1.7dvw;
+    font-weight: 500;
+    color: #fff;
+    width: 76%;
+}
+.servicios-page .servicio-03 {
+    grid-area: servicio-03;
+    background: url(/assets/images/servicio-03.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+}
+.servicios-page .servicio-03:hover {
+    scale: 1.05;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+.servicios-page .servicio-03 h4 {
+    margin: 0.5em 0 0 0.5em;
+    font-family: poppins, sans-serif;
+    font-size: 3dvw;
+    font-weight: 500;
+    color: #d9e520;
+}
+.servicios-page .servicio-03 p {
+    margin: 0 1em;
+    font-family: "alata", sans-serif;
+    font-size: 1.7dvw;
+    font-weight: 500;
+    color: #fff;
+    width: 76%;
+}
+.servicios-page .servicio-04 {
+    grid-area: servicio-04;
+    background: url(/assets/images/servicio-04.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+}
+.servicios-page .servicio-04:hover {
+    scale: 1.05;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+.servicios-page .servicio-04 h4 {
+    margin: 0.5em 0 0 0.5em;
+    font-family: poppins, sans-serif;
+    font-size: 3dvw;
+    font-weight: 500;
+    color: #d9e520;
+}
+.servicios-page .servicio-04 p {
+    margin: 0 1em;
+    font-family: "alata", sans-serif;
+    font-size: 1.7dvw;
+    font-weight: 500;
+    color: #fff;
+    width: 76%;
+}
+.servicios-page .servicio-05 {
+    grid-area: servicio-05;
+    background: url(/assets/images/servicio-05.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+}
+.servicios-page .servicio-05:hover {
+    scale: 1.05;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+.servicios-page .servicio-05 h4 {
+    margin: 0.5em 0 0 0.5em;
+    font-family: poppins, sans-serif;
+    font-size: 3dvw;
+    font-weight: 500;
+    color: #d9e520;
+}
+.servicios-page .servicio-05 p {
+    margin: 0 1em;
+    font-family: "alata", sans-serif;
+    font-size: 1.7dvw;
+    font-weight: 500;
+    color: #fff;
+    width: 76%;
 }

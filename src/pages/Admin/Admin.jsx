@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useUser } from "../../contexts/UserContext";
 import { Error } from "../Error/Error";
 import { app } from "../../config/firebaseConfig";
+import Toastify from "toastify-js";
 import {
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
   getFirestore,
-  updateDoc,
   writeBatch,
 } from "firebase/firestore";
 import { formatear } from "../../utilities/formateo";
@@ -19,7 +20,9 @@ import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+// import AddIcon from "@mui/icons-material/Add";
 import Swal from "sweetalert2";
+// import { v4 as uuidv4 } from "uuid";
 import { capitalize } from "../../utilities/capitalize";
 
 export const Admin = () => {
@@ -59,6 +62,87 @@ export const Admin = () => {
     };
     fetchData();
   }, []);
+
+  // const addProduct = () => {
+  //   const prodID = uuidv4();
+  //   Swal.fire({
+  //     title: "Añadir producto",
+  //     html: `
+  //             <form class="add-product-form" id="dynamic-form">
+
+  //                   <label for="nombreInput">Nombre:</label>
+  //                   <input id="nombreInput" class="swal2-input" required>
+
+  //                   <label for="descInput">Descripción:</label>
+  //                   <input id="descInput" class="swal2-input" required>
+
+  //                   <label for="califInput">Calificación:</label>
+  //                   <input id="califInput" class="swal2-input" type="number" min=0 step=0.1 max=5 required>
+
+  //                   <label for="imgInput">Imagen:</label>
+  //                   <input id="imgInput" class="swal2-input" type="url" placeholder="http://..." required>
+
+  //                   <label for="precioInput">Precio:</label>
+  //                   <input id="precioInput" class="swal2-input" type="number" min=0 required>
+
+  //                   <label for="catInput">Categoría:</label>
+  //                   <select id="catInput" class="swal2-input" required>
+  //                     <option value="Celulares" >Celulares</option>
+  //                     <option value="Sonido" >Sonido</option>
+  //                     <option value="Iluminacion" >Iluminación</option>
+  //                     <option value="Cargadores" >Cargadores</option>
+  //                     <option value="Ofertas" >Ofertas</option>
+  //                   </select>
+  //                   <div id="dynamic-inputs-container">
+  //                     <label for="precOriginalInput">Precio Original:</label>
+  //                     <input id="precOriginalInput" class="swal2-input" type="number" min=0 step=0.1 >
+
+  //                     <label for ="tipoOfInput">Tipo</label>
+  //                     <select id="tipoOfInput" class="swal2-input">
+  //                       <option>10% off</option>
+  //                       <option>Best pick</option>
+  //                       <option>Hot sale</option>
+  //                     </select>
+  //                     <label for="ofDiariaInput">¿Es oferta del día?</label>
+  //                     <select id="ofDiariaInput" class="swal2-input">
+  //                       <option value=false>No</option>
+  //                       <option value=true>Sí</option>
+  //                     </select>
+  //                   </div>
+  //             </form>
+  //           `,
+  //     focusConfirm: false,
+  //     showCancelButton: true,
+  //     didOpen: () => {
+  //       const db = getFirestore(app);
+  //       const select = document.getElementById("catInput");
+  //       const inputContainer = document.getElementById(
+  //         "dynamic-inputs-container"
+  //       );
+
+  //       select.addEventListener("change", () => {
+  //         const { value } = select;
+  //         let inputsHTML = "";
+  //         if (value === "Ofertas") {
+  //           inputsHTML = `<label for="precOriginalInput">Precio Original:</label><input id="precOriginalInput" class="swal2-input" type="number" min=0 step=0.1 >
+  //           <label for ="tipoOfInput">Tipo</label> <select id="tipoOfInput" class="swal2-input"><option>10% off</option><option>Best pick</option><option>Hot sale</option></select>
+  //           <label for="ofDiariaInput">¿Es oferta del día?</label> <select id="ofDiariaInput" class="swal2-input"><option value=false>No</option> <option value=true>Sí</option></select>
+  //           `;
+  //         }
+  //         if (value === "Celulares") {
+  //           inputsHTML = `<label for="precOriginalInput">Precio Original:</label><input id="precOriginalInput" class="swal2-input" type="number" min=0 step=0.1 >
+  //           <label for ="tipoOfInput">Tipo</label> <select id="tipoOfInput" class="swal2-input"><option>10% off</option><option>Best pick</option><option>Hot sale</option></select>
+  //           <label for="ofDiariaInput">¿Es oferta del día?</label> <select id="ofDiariaInput" class="swal2-input"><option value=false>No</option> <option value=true>Sí</option></select>
+  //           `;
+  //         }
+
+  //         inputContainer.innerHTML = inputsHTML;
+  //       });
+
+  //       const docRef = doc(db, categoria, prodID);
+  //     },
+  //   });
+  // };
 
   const editProduct = (producto) => {
     const { id, nombre, imagen, descripcion, categoria, stock, precio } =
@@ -102,15 +186,6 @@ export const Admin = () => {
                       <option value="cargadores" ${
                         categoria === "cargadores" ? "selected" : ""
                       }>Cargadores</option>
-                      <option value="relojes" ${
-                        categoria === "relojes" ? "selected" : ""
-                      }>Relojes</option>
-                      <option value="tv" ${
-                        categoria === "tv" ? "selected" : ""
-                      }>TV</option>
-                      <option value="termos" ${
-                        categoria === "termos" ? "selected" : ""
-                      }>Termos</option>
                       <option value="ofertas" ${
                         categoria === "ofertas" ? "selected" : ""
                       }>Ofertas</option>
@@ -132,7 +207,6 @@ export const Admin = () => {
       preConfirm: async () => {
         const batch = writeBatch(db);
         const docRef = doc(db, capitalize(categoria), id);
-
         const nombreInput = document.getElementById("nombre").value;
         const imgInput = document.getElementById("img").value;
         const descInput = document.getElementById("desc").value;
@@ -152,10 +226,6 @@ export const Admin = () => {
           batch.update(docRef, { descripcion: descInput });
         }
 
-        if (catInput !== categoria) {
-          batch.update(docRef, { categoria: catInput });
-        }
-
         if (stockInput !== stock) {
           batch.update(docRef, { stock: stockInput });
         }
@@ -164,6 +234,16 @@ export const Admin = () => {
           batch.update(docRef, { precio: precioInput });
         }
 
+        if (catInput !== categoria) {
+          const docSnapshot = await getDoc(docRef);
+          const docData = docSnapshot.data();
+
+          const newColRef = collection(db, capitalize(catInput));
+          const newDocRef = doc(newColRef, id);
+
+          batch.set(newDocRef, { ...docData, categoria: catInput });
+          batch.delete(docRef);
+        }
         try {
           await batch.commit();
           setProducts((prevProducts) =>
@@ -194,6 +274,48 @@ export const Admin = () => {
     });
   };
 
+  const deleteProduct = (producto) => {
+    Swal.fire({
+      title: "¿Eliminar producto?",
+      text: "Esta acción es irreversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#656766",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Eliminar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const { categoria, id } = producto;
+        const db = getFirestore(app);
+        const docRef = doc(db, capitalize(categoria), id);
+        deleteDoc(docRef);
+        Toastify({
+          text: "Producto eliminado con éxito",
+          duration: 3000,
+          newWindow: false,
+          close: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+            color: "#00ffff",
+            border: "#00ffff 2px solid",
+            fontFamily: "alata",
+            fontSize: "1rem",
+            marginTop: "9rem",
+            display: "flex",
+            gap: "1rem",
+            backdropFilter: "blur(1rem)",
+            background: "transparent",
+            borderRadius: "2rem",
+          },
+        }).showToast();
+        setProducts(products.filter((prod) => prod.id !== id));
+      }
+    });
+  };
+
   return (
     <>
       {admin ? (
@@ -204,6 +326,9 @@ export const Admin = () => {
         ) : (
           <main className="admin-page main">
             <h1>Lista de productos</h1>
+            {/* <button className="admin-add-btn" onClick={addProduct}>
+              <AddIcon /> AÑADIR UN PRODUCTO
+            </button> */}
             <table>
               <thead>
                 <tr>
@@ -247,7 +372,10 @@ export const Admin = () => {
                           >
                             <EditIcon />
                           </IconButton>
-                          <IconButton color="secondary">
+                          <IconButton
+                            color="secondary"
+                            onClick={() => deleteProduct(prod)}
+                          >
                             <DeleteIcon />
                           </IconButton>
                         </Stack>
