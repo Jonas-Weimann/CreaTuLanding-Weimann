@@ -71,6 +71,7 @@ export const Header = () => {
                       showCancelButton: true,
                       confirmButtonColor: "#d33",
                       cancelButtonColor: "#656766",
+                      cancelButtonText: "Cancelar",
                       confirmButtonText: "Iniciar sesión",
                     }).then((result) => {
                       if (result.isConfirmed) {

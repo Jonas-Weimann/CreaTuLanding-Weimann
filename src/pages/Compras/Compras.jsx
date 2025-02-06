@@ -6,7 +6,6 @@ import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDiss
 
 export const Compras = () => {
   const { compras, loggedIn } = useUser();
-  console.log(compras);
 
   return loggedIn ? (
     <main className="compras-page main">

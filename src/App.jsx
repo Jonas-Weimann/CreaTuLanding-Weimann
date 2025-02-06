@@ -18,6 +18,7 @@ import { UserProvider } from "./contexts/UserContext";
 import { Cart } from "./pages/Cart/Cart";
 import { Servicios } from "./pages/Servicios/Servicios";
 import { Compras } from "./pages/Compras/Compras";
+import { Favoritos } from "./pages/Favoritos/Favoritos";
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -126,7 +127,10 @@ export const App = () => {
                 path="/NucleoTechnology/Servicios"
                 element={<Servicios />}
               />
-              <Route path="/NucleoTechnology/Favoritos" element={<Admin />} />
+              <Route
+                path="/NucleoTechnology/Favoritos"
+                element={<Favoritos />}
+              />
               <Route path="/NucleoTechnology/Admin" element={<Admin />} />
               <Route path="/NucleoTechnology/Cart" element={<Cart />} />
               <Route
