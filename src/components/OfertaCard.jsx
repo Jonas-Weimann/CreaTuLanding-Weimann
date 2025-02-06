@@ -7,7 +7,7 @@ import { formatear } from "../utilities/formateo";
 
 export const OfertaCard = ({ object }) => {
   const { addToCart } = useCart();
-  const { id, nombre, precioOriginal, precio, imagen, tipo } = object;
+  const { id, nombre, precioOriginal, precio, imagen, tipo, stock } = object;
   return (
     <div className="card oferta">
       {tipo == "10% off" && (
@@ -35,6 +35,7 @@ export const OfertaCard = ({ object }) => {
         </span>
       )}
       <Fab
+        disabled={!stock}
         onClick={() => addToCart(object)}
         color="accent"
         aria-label="add-to-cart"
@@ -42,13 +43,21 @@ export const OfertaCard = ({ object }) => {
       >
         <AddShoppingCartIcon sx={{ width: "1.5rem", height: "1.5rem" }} />
       </Fab>
-      <div className="img-container">
-        <Link to={`/NucleoTechnology/Ofertas/${id}`}>
+      <div className={stock ? "img-container" : "img-container sin-stock"}>
+        {stock ? (
+          <Link to={`/NucleoTechnology/Ofertas/${id}`}>
+            <img src={imagen} alt={nombre} />
+          </Link>
+        ) : (
           <img src={imagen} alt={nombre} />
-        </Link>
+        )}
       </div>
       <span className="product-name">
-        <Link to={`/NucleoTechnology/Ofertas/${id}`}>{nombre}</Link>
+        {stock ? (
+          <Link to={`/NucleoTechnology/Ofertas/${id}`}>{nombre}</Link>
+        ) : (
+          nombre
+        )}
       </span>
       <div className="prices-container">
         <span className="old-price">
@@ -57,6 +66,7 @@ export const OfertaCard = ({ object }) => {
         <span className="price">{formatear(precio)}</span>
       </div>
       <Button
+        disabled={!stock}
         component={Link}
         to={`/NucleoTechnology/Ofertas/${id}`}
         variant="contained"
@@ -64,7 +74,7 @@ export const OfertaCard = ({ object }) => {
         size="medium"
         className="mas-info-btn"
       >
-        Ver más
+        {stock ? "Ver más" : "Sin stock"}
       </Button>
     </div>
   );

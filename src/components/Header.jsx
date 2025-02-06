@@ -141,6 +141,17 @@ export const Header = () => {
         >
           Servicios
         </NavLink>
+        {loggedIn && (
+          <NavLink
+            to="/NucleoTechnology/MisCompras"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+            id="nav-compras"
+          >
+            Mis Compras
+          </NavLink>
+        )}
 
         {admin && (
           <NavLink

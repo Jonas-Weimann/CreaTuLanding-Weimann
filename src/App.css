@@ -94,7 +94,7 @@ header {
     border-radius: 2rem;
 }
 
-.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page, .servicios-page{
+.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page, .servicios-page, .compras-page{
     padding-top: 10rem;
 }
 
@@ -492,7 +492,7 @@ header {
 }
 
 
-.special-offers-section h1, .product-page h1, .servicios-page h1 {
+.special-offers-section h1, .product-page h1, .servicios-page h1, .compras-page h1 {
     font-family: deca;
     font-size: 2.5rem;
     padding: 1rem 1.5rem;
@@ -1482,6 +1482,10 @@ button.swal2-styled{
     min-width: 40rem;
 }
 
+.sin-stock{
+    filter: grayscale(100%);
+}
+
 /*LOADING PAGE STYLES*/
 .loading-page{
     background-color: #13032b;
@@ -1668,4 +1672,100 @@ button.swal2-styled{
     font-weight: 500;
     color: #fff;
     width: 76%;
+}
+/*MIS COMPRAS PAGE*/
+.compras-page{
+    background: #09011f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.compras-container{
+    width: 75%;
+    background-color: rgba(44, 4, 63, 0.397);
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+}
+
+.compras-headers{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #40127c;
+    border-radius: 2rem;
+
+}
+
+.compras-container .span{
+    text-align: center;
+    display: inline-block;
+    width: 12%;
+    font-family: deca;
+}
+
+.compras-headers .span{
+    color: var(--secondary-light);
+    background-color: #27143f7e;
+    font-size: 1.4rem;
+    padding: 1rem 0;
+    border-radius: 2rem;
+}
+
+
+.compras-item-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.compras-item-container .span, .product-list-container{
+    color: var(--text);
+    background-color: #3636367e;
+    border-radius: 2rem;
+    padding: 1rem 0;
+}
+
+.compra-item{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #202020;
+}
+
+.compra-item .product-list-container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.compras-headers span:nth-child(4){
+    width: 40%;
+}
+
+.product-list-container img{
+    width: 10%;
+    aspect-ratio: 1/1;
+}
+.product-list-item{
+    width: 80%;
+    padding: 0 2rem;
+    color: var(--text);
+    font-family: deca;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
