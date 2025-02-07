@@ -144,6 +144,47 @@ export const Admin = () => {
   //   });
   // };
 
+  const viewProduct = (producto) => {
+    const { id, precio, nombre, descripcion, categoria, imagen, stock } =
+      producto;
+    Swal.fire({
+      title: "Información del producto",
+      html: `<div class="item-detail-view-form">
+                <span style="text-align: center; display: block;"><strong>Product ID:</strong> <br/> ${id}</span>
+                
+                <div class="view-data-container">
+                  <div class="view-image-container">
+                    <span >Nombre:</span>
+                    <p>${nombre}</p>
+
+                    <span>Imagen:</span>
+                    <div class="view-image">
+                      <img src="${imagen}">
+                      <span>Fuente: </span>
+                      <p>${imagen}</p>
+                    </div>
+                  </div>
+
+                  <div class="view-desc-container">
+                    <span>Descripción:</span>
+                    <p>${descripcion || "N/A"}</p>
+
+                    <span>Categoría:</span>
+                    <p id="cat"  style="width: 100%;">
+                      ${capitalize(categoria)}
+                    </p>
+
+                    <span>Stock:</span>
+                    <p id="stock" class="swal2-input">${stock || "N/A"}</p>
+
+                    <span>Precio:</span>
+                    <p id="precio" class="swal2-input" >${formatear(precio)}</p>
+                  </div>
+                </div>
+              </div>`,
+    });
+  };
+
   const editProduct = (producto) => {
     const { id, nombre, imagen, descripcion, categoria, stock, precio } =
       producto;
@@ -363,7 +404,10 @@ export const Admin = () => {
                             gap: "1rem",
                           }}
                         >
-                          <IconButton color="secondary">
+                          <IconButton
+                            color="secondary"
+                            onClick={() => viewProduct(prod)}
+                          >
                             <InfoIcon />
                           </IconButton>
                           <IconButton

@@ -132,7 +132,7 @@ export const UserProvider = ({ children }) => {
     setCompras(await getCompras(user));
     setFavs(await getFavs(user));
     console.log(favs);
-    if (user.email === "jonas.weimann04@gmail.com") setAdmin(true);
+    if (user.email === "admin@admin.com") setAdmin(true);
     navigate("/NucleoTechnology/Ofertas", { replace: false });
   };
 

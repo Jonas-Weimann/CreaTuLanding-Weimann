@@ -3,6 +3,7 @@ import { app } from "../config/firebaseConfig";
 import { LogInForm } from "./LogInForm";
 import { RegisterForm } from "./RegisterForm";
 import { useUser } from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
   getAuth,
@@ -15,6 +16,7 @@ const auth = getAuth(app);
 export const LogInRegister = () => {
   const { login } = useUser();
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   const handleAuthenticate = async (e) => {
     e.preventDefault();
@@ -35,6 +37,7 @@ export const LogInRegister = () => {
           confirmButtonText: "Aceptar",
           willClose: () => {
             login(userCredential.user);
+            navigate("/NucleoTechnology/Ofertas");
           },
         });
       } catch (error) {
@@ -60,7 +63,9 @@ export const LogInRegister = () => {
           text: "Usuario registrado correctamente",
           icon: "success",
           confirmButtonText: "Aceptar",
-          willClose: () => login(userCredential.user),
+          willClose: () => {
+            login(userCredential.user), navigate("/NucleoTechnology/Ofertas");
+          },
         });
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {

@@ -1,5 +1,4 @@
 import { CartWidget } from "./CartWidget";
-import { SearchBar } from "./SearchBar";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -7,6 +6,7 @@ import Logo from "../assets/images/logo.svg";
 import LoginRegisterIcon from "../assets/images/login-register.svg";
 import Swal from "sweetalert2";
 import { useUser } from "../contexts/UserContext";
+import { GlobalSearchBar } from "./GlobalSearchBar";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ export const Header = () => {
         <Link to="/NucleoTechnology/Ofertas">
           <img src={Logo} alt="NUCLEO Technology" className="logo-icon" />
         </Link>
-        <SearchBar page="Nucleo Technology" />
+        <GlobalSearchBar />
         <div className="widgets">
           {loggedIn ? (
             <>
