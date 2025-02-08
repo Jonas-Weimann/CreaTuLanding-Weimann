@@ -3,7 +3,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GoogleIcon from "../assets/images/google-icon.png";
 
-export const LogInForm = ({
+export const LoginForm = ({
   onToggleRegister,
   onToggleViewPassword,
   onAuthenticate,
