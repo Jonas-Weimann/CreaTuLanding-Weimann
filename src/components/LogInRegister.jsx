@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LogInForm } from "./LogInForm";
+import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RegisterForm";
 import { useUser } from "../contexts/UserContext";
 
@@ -35,14 +35,14 @@ export const LogInRegister = () => {
   return (
     <main className="login-page main">
       <section className="login-register-container">
-        <LogInForm
+        <LoginForm
           onToggleRegister={handleToggleRegister}
           onToggleViewPassword={handleToggleViewPassword}
           onAuthenticate={handleAuthenticate}
           onGoogleAuthenticate={handleGoogleAuthenticate}
           onForgetPassword={recoverPassword}
           visible={visible}
-        ></LogInForm>
+        ></LoginForm>
         <RegisterForm
           onToggleLogin={handleToggleLogin}
           onToggleViewPassword={handleToggleViewPassword}
