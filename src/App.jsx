@@ -63,91 +63,67 @@ export const App = () => {
           <CartProvider>
             <Header />
             <Routes>
-              <Route path="/NucleoTechnology/" element={<Ofertas />} />
+              <Route path="/" element={<Ofertas />} />
+              <Route path="/LoginRegister" element={<LogInRegister />} />
+              <Route path="/Ofertas" element={<Ofertas />} />
               <Route
-                path="/NucleoTechnology/LoginRegister"
-                element={<LogInRegister />}
-              />
-              <Route path="/NucleoTechnology/Ofertas" element={<Ofertas />} />
-              <Route
-                path="/NucleoTechnology/Ofertas/:idProducto"
+                path="/Ofertas/:idProducto"
                 element={
                   <ItemDetailContainer
-                    url="http://localhost:5173/NucleoTechnology/db/ofertas.json"
+                    url="http://localhost:5173/db/ofertas.json"
                     page="Ofertas"
                   />
                 }
               />
+              <Route path="/Celulares" element={<Celulares />} />
               <Route
-                path="/NucleoTechnology/Celulares"
-                element={<Celulares />}
-              />
-              <Route
-                path="/NucleoTechnology/Celulares/:idProducto"
+                path="/Celulares/:idProducto"
                 element={
                   <ItemDetailContainer
-                    url="http://localhost:5173/NucleoTechnology/db/celulares.json"
+                    url="http://localhost:5173/db/celulares.json"
                     page="Celulares"
                   />
                 }
               />
+              <Route path="/Cargadores" element={<Cargadores />} />
               <Route
-                path="/NucleoTechnology/Cargadores"
-                element={<Cargadores />}
-              />
-              <Route
-                path="/NucleoTechnology/Cargadores/:idProducto"
+                path="/Cargadores/:idProducto"
                 element={
                   <ItemDetailContainer
-                    url="http://localhost:5173/NucleoTechnology/db/cargadores.json"
+                    url="http://localhost:5173/db/cargadores.json"
                     page="Cargadores"
                   />
                 }
               />
-              <Route path="/NucleoTechnology/Sonido" element={<Sonido />} />
+              <Route path="/Sonido" element={<Sonido />} />
               <Route
-                path="/NucleoTechnology/Sonido/:idProducto"
+                path="/Sonido/:idProducto"
                 element={
                   <ItemDetailContainer
-                    url="http://localhost:5173/NucleoTechnology/db/sonido.json"
+                    url="http://localhost:5173/db/sonido.json"
                     page="Sonido"
                   />
                 }
               />
+              <Route path="/Iluminacion" element={<Iluminacion />} />
               <Route
-                path="/NucleoTechnology/Iluminacion"
-                element={<Iluminacion />}
-              />
-              <Route
-                path="/NucleoTechnology/Iluminacion/:idProducto"
+                path="/Iluminacion/:idProducto"
                 element={
                   <ItemDetailContainer
-                    url="http://localhost:5173/NucleoTechnology/db/iluminacion.json"
+                    url="http://localhost:5173/db/iluminacion.json"
                     page="Iluminacion"
                   />
                 }
               />
-              <Route
-                path="/NucleoTechnology/Servicios"
-                element={<Servicios />}
-              />
-              <Route
-                path="/NucleoTechnology/Favoritos"
-                element={<Favoritos />}
-              />
-              <Route path="/NucleoTechnology/Admin" element={<Admin />} />
-              <Route path="/NucleoTechnology/Cart" element={<Cart />} />
-              <Route path="/NucleoTechnology/FAQ" element={<FAQ />} />
-              <Route path="/NucleoTechnology/Account" element={<Account />} />
-              <Route
-                path="/NucleoTechnology/Privacy"
-                element={<Privacidad />}
-              />
-              <Route path="/NucleoTechnology/About" element={<About />} />
-              <Route
-                path="/NucleoTechnology/MisCompras"
-                element={<Compras />}
-              />
+              <Route path="/Servicios" element={<Servicios />} />
+              <Route path="/Favoritos" element={<Favoritos />} />
+              <Route path="/Admin" element={<Admin />} />
+              <Route path="/Cart" element={<Cart />} />
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/Account" element={<Account />} />
+              <Route path="/Privacy" element={<Privacidad />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/MisCompras" element={<Compras />} />
               <Route path="*" element={<Error />}></Route>
             </Routes>
           </CartProvider>
