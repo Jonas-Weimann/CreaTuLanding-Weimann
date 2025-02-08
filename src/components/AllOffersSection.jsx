@@ -1,6 +1,6 @@
 import { OfertaCard } from "./OfertaCard";
-import Blob3 from "../assets/images/blob3.png";
-import Blob4 from "../assets/images/blob4.png";
+import Blob3 from "../assets/images/BLOB3.png";
+import Blob4 from "../assets/images/BLOB4.png";
 
 export const AllOffersSection = ({ data }) => {
   return (

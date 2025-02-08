@@ -1,8 +1,8 @@
 import { DailyOfferSection } from "../../components/DailyOfferSection";
 import { SpecialOffersSection } from "../../components/SpecialOffersSection";
 import { AllOffersSection } from "../../components/AllOffersSection";
-import Blob1 from "../../assets/images/blob1.png";
-import Blob2 from "../../assets/images/blob2.png";
+import Blob1 from "../../assets/images/BLOB1.png";
+import Blob2 from "../../assets/images/BLOB2.png";
 import useFetch from "../../hooks/usefetch";
 import { LoadingPage } from "../Loading/LoadingPage";
 import { FetchError } from "../Error/FetchError";
