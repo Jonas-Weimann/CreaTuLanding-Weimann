@@ -108,7 +108,7 @@ header {
     border-radius: 2rem;
 }
 
-.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page, .servicios-page, .compras-page, .favoritos-page{
+.product-page, .detail-page, .ofertas-page, .login-page, .cart-page, .admin-page, .loading-page, .servicios-page, .compras-page, .favoritos-page,.privacidad-page, .about-page, .faq-page, .account-page{
     padding-top: 10rem;
 }
 
@@ -528,7 +528,7 @@ header {
 }
 
 
-.special-offers-section h1, .product-page h1, .servicios-page h1, .compras-page h1,.favoritos-page h1 {
+.special-offers-section h1, .product-page h1, .servicios-page h1, .compras-page h1, .favoritos-page h1, .privacidad-page h1, .about-page h1, .faq-page h1, .account-page h1 {
     font-family: deca;
     font-size: 2.5rem;
     padding: 1rem 1.5rem;
@@ -1010,6 +1010,21 @@ footer span{
     font-size: 2em;
     color: var(--secondary-light);
     text-align: center;
+}
+
+.login form button{
+    width: 100%;
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--text);
+}
+
+.login form button img{
+    width: 2rem;
+    justify-self: left;
 }
 
 .input-box {
@@ -1739,7 +1754,9 @@ border-radius: 0 0 2rem 0;
     background: #09011f;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding-bottom: 10rem;
     gap: 2rem;
 }
 
@@ -1942,3 +1959,203 @@ border-radius: 0 0 2rem 0;
     gap: 1.5rem;
 }
 
+/*PRIVACY PAGE*/
+.privacidad-page {
+    width: 100%;
+    gap: 2rem;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgb(122, 24, 102) 0%, rgb(3, 3, 33) 70%, rgb(3, 3, 33) 89%);
+  }
+
+.privacidad-page img{
+    margin-top: 5rem;
+    width: 25rem;
+}
+
+.privacy-info-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.privacy-info-container span{
+    font-family: poppins;
+    font-size: 1.5rem;
+    color: var(--secondary-light);
+
+}
+
+.privacy-info-container p{
+    padding: 1rem 0;
+    font-family: alata;
+    font-size: 1.1rem;
+    text-align: justify;
+    color: var(--text);
+}
+
+.privacy-info-container p a{
+    color: var(--accent);
+}
+
+.privacidad-page--extra{
+    color: var(--secondary-dark);
+    font-family: poppins;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 60%;
+
+}
+
+/*ABOUT US PAGE*/
+
+.about-page {
+    width: 100%;
+    gap: 2rem;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgb(122, 24, 102) 0%, rgb(3, 3, 33) 70%, rgb(3, 3, 33) 89%);
+  }
+
+.about-page img{
+    margin-top: 5rem;
+    width: 25rem;
+}
+
+
+.about-info-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.about-info-container span{
+    font-family: poppins;
+    font-size: 1.5rem;
+    color: var(--secondary-light);
+
+}
+
+.about-info-container p{
+    padding: 1rem 0;
+    font-family: alata;
+    font-size: 1.1rem;
+    text-align: justify;
+    color: var(--text);
+}
+
+.about-info-container p a{
+    color: var(--accent);
+}
+
+.about-page--extra{
+    color: var(--secondary-dark);
+    font-family: poppins;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 60%;
+}
+
+/*FAQ PAGE*/
+
+.faq-page{
+    width: 100%;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgb(122, 24, 102) 0%, rgb(3, 3, 33) 70%, rgb(3, 3, 33) 89%);
+}
+
+.faq-page ol{
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.faq-page ol li {
+    width: 50%;
+    font-family: poppins;
+    font-size: 1.5rem;
+    color: var(--secondary-light);
+}
+
+.faq-page ol li p{
+    padding: 1rem 0;
+    font-family: alata;
+    font-size: 1.1rem;
+    text-align: justify;
+    color: var(--text);
+}
+
+/*ACCOUNT PAGE*/
+.account-page{
+    background: #450a57;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 5rem;
+}
+
+.account-page .acc-data-container{
+    width: 25rem;
+    padding: 3rem 0;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background-color: #1c011f8e;
+}
+.account-page img{
+    width: 10rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.account-page .acc-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-family: deca;
+    font-size: 1.2rem;
+    width: 80%;
+}
+
+.acc-data span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: justify;
+    color: var(--text);
+}
+
+.acc-data span b{
+    color: var(--secondary-light);
+}
+
+.acc-data a{
+    color: var(--secondary-dark);
+    text-decoration: none;
+}
+
+.acc-data a:hover{
+    color: var(--secondary-light);
+    text-decoration: underline;
+}

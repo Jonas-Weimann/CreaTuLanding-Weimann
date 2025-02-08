@@ -144,6 +144,17 @@ export const Header = () => {
         </NavLink>
         {loggedIn && (
           <NavLink
+            to="/NucleoTechnology/Account"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+            id="nav-account"
+          >
+            Mi Cuenta
+          </NavLink>
+        )}
+        {loggedIn && (
+          <NavLink
             to="/NucleoTechnology/MisCompras"
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"

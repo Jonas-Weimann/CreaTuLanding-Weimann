@@ -19,6 +19,10 @@ import { Cart } from "./pages/Cart/Cart";
 import { Servicios } from "./pages/Servicios/Servicios";
 import { Compras } from "./pages/Compras/Compras";
 import { Favoritos } from "./pages/Favoritos/Favoritos";
+import { Privacidad } from "./pages/Privacidad/Privacidad";
+import { About } from "./pages/About/About";
+import { FAQ } from "./pages/FAQ/FAQ";
+import { Account } from "./pages/Account/Account";
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -133,6 +137,13 @@ export const App = () => {
               />
               <Route path="/NucleoTechnology/Admin" element={<Admin />} />
               <Route path="/NucleoTechnology/Cart" element={<Cart />} />
+              <Route path="/NucleoTechnology/FAQ" element={<FAQ />} />
+              <Route path="/NucleoTechnology/Account" element={<Account />} />
+              <Route
+                path="/NucleoTechnology/Privacy"
+                element={<Privacidad />}
+              />
+              <Route path="/NucleoTechnology/About" element={<About />} />
               <Route
                 path="/NucleoTechnology/MisCompras"
                 element={<Compras />}
@@ -140,8 +151,8 @@ export const App = () => {
               <Route path="*" element={<Error />}></Route>
             </Routes>
           </CartProvider>
+          <Footer />
         </UserProvider>
-        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

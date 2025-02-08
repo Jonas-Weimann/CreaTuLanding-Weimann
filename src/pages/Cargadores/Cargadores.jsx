@@ -26,19 +26,11 @@ export const Cargadores = () => {
     tipo: [
       "Cargador de pared",
       "Cargador inalámbrico",
-      "Adaptador",
       "Power bank",
-      "Cable de carga",
-      "Cargador para auto",
+      "Cargador de auto",
     ],
     conector: ["USB-C", "Micro USB", "Conector universal"],
-    compatibilidad: [
-      "Apple",
-      "Android",
-      "Universal",
-      "Laptop/Notebook",
-      "Tabletas",
-    ],
+    compatibilidad: ["Apple", "Android", "Universal", "Notebook"],
     potencia: ["5W", "10W", "30W", "45W"],
     puertos: [1, 2, 3, 4],
   };

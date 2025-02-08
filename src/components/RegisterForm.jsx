@@ -2,6 +2,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { Link } from "react-router-dom";
 
 export const RegisterForm = ({
   onToggleLogin,
@@ -41,8 +42,9 @@ export const RegisterForm = ({
         </div>
         <div className="remember-forgot">
           <label>
-            <input type="checkbox" />
-            Acepto las bases y condiciones
+            <input type="checkbox" required />
+            He leído y acepto la{" "}
+            <Link to="/NucleoTechnology/Privacy">Política de Privacidad</Link>
           </label>
         </div>
         <input

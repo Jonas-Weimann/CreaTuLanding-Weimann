@@ -1,12 +1,14 @@
-import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import GoogleIcon from "../assets/images/google-icon.png";
 
 export const LogInForm = ({
   onToggleRegister,
   onToggleViewPassword,
   onAuthenticate,
+  onForgetPassword,
+  onGoogleAuthenticate,
   visible,
 }) => {
   return (
@@ -17,7 +19,7 @@ export const LogInForm = ({
           <span className="icon">
             <EmailIcon />
           </span>
-          <input type="email" required name="email" />
+          <input id="email" type="email" required name="email" />
           <label>Correo electrónico</label>
         </div>
         <div className="input-box">
@@ -34,10 +36,19 @@ export const LogInForm = ({
         </div>
         <div className="remember-forgot">
           <label>
-            <input type="checkbox" />
+            <input type="checkbox" name="rememberme" />
             Recuérdame
           </label>
-          <a href="#">¿Olvidaste tu contraseña?</a>
+          <a
+            href="#"
+            onClick={() => {
+              const email = document.getElementById("email");
+              onForgetPassword(email.value);
+              console.log(email.value);
+            }}
+          >
+            ¿Olvidaste tu contraseña?
+          </a>
         </div>
         <input
           type="submit"
@@ -45,6 +56,10 @@ export const LogInForm = ({
           value="Iniciar sesión"
           name="action"
         />
+        <button className="btn" onClick={onGoogleAuthenticate}>
+          <img src={GoogleIcon} alt="" />
+          Iniciar sesión con Google
+        </button>
         <div className="login-register">
           <p>
             ¿No tienes una cuenta?{" "}
