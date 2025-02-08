@@ -63,6 +63,7 @@ export const App = () => {
           <CartProvider>
             <Header />
             <Routes>
+              <Route path="/" element={<Ofertas />} />
               <Route path="/NucleoTechnology/" element={<Ofertas />} />
               <Route
                 path="/NucleoTechnology/LoginRegister"
