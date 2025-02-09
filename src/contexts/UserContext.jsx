@@ -216,8 +216,8 @@ export const UserProvider = ({ children }) => {
     const accion = e.target.action.value;
     const correo = e.target.email.value;
     const contraseña = e.target.password.value;
-    const rememberme = e.target.rememberme.checked;
     if (accion === "Iniciar sesión") {
+      const rememberme = e.target.rememberme.checked;
       try {
         const userCredential = await signInWithEmailAndPassword(
           auth,
